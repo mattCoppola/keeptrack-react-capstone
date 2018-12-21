@@ -1,0 +1,280 @@
+/*---------------------*/
+/* Basic Setup */
+/*---------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+.clearfix {
+    zoom: 1
+}
+
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+fieldset legend {
+    position: absolute;
+    left: -5000px;
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+    margin-left: 0px;
+}
+
+/*---------------------*/
+/* Reusable Components */
+/*---------------------*/
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 40px 0;
+}
+
+/*HEADINGS*/
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 300;
+    /*    text-transform: uppercase;*/
+}
+
+h1 {
+    color: #fff;
+}
+
+/*PARAGRAPHS*/
+.long-copy {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+    padding-bottom: 3%;
+}
+
+/*LINKS*/
+a:link,
+a:visited {
+    color: #228ce6;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #228ce6;
+}
+
+a:hover,
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+/*BUTTONS*/
+
+.btn:link,
+.btn:visited,
+input[type="submit"] {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type="submit"] {
+    background-color: #228ce6;
+    border: 1px solid #228ce6;
+    color: #fff;
+    /*    margin-right: 15px;*/
+}
+
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+    background-color: #229be6;
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+    border: 1px solid #229be6;
+}
+
+/*---------------------*/
+/* Header */
+/*---------------------*/
+
+header#home {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/computerparts.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+header#user {
+    background-color: #333;
+}
+
+nav#user {
+    background-color: #333;
+}
+
+.hero-text-box {
+    position: absolute;
+    text-align: center;
+    width: 1140px;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-blur {
+    width: 61%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-text-box h1 {
+    font-size: 100%;
+}
+
+.hero-text-box .btn {
+    width: 11rem;
+    margin-top: 15px;
+}
+
+.hero-text-box .btn:last-of-type {
+    margin-left: 1rem;
+}
+
+.logo {
+    float: left;
+    margin-top: 20px;
+}
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 40px;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin: 20px;
+    font-weight: 400;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #228ce6;
+}
+
+.hamburger a {
+    display: none;
+}
+
+/*---------------------*/
+/* Next Steps */
+/*---------------------*/
+
+.next-steps {
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.next-steps h2 {
+    margin-bottom: 30px;
+}
+
+.next-steps h3 {
+    font-size: 80%;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.next-steps img {
+    padding: 30px;
+    height: 200px;
+}
+
+/*---------------------*/
+/* Footer */
+/*---------------------*/
+
+footer {
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+    text-align: center;
+}
+
+footer .btn-full:link,
+footer .btn-full:visited {
+    padding: 5px 15px;
+    margin-bottom: 20px;
+    font-size: 70%;
+}
+
+.social-links {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+}
