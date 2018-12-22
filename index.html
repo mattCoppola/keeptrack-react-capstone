@@ -11,6 +11,7 @@
 
     <title>keepTrack</title>
 </head>
+
 <body>
     <header id="home" role="banner">
         <nav role="navigation">
@@ -130,6 +131,8 @@
     </div>
 
     <div class=create-work-order>
+        <h2>Work Order Form</h2>
+        <!--        https://www.sanwebe.com/2014/08/css-html-forms-designs-->
         <form class="form-style-9">
             <ul>
                 <li>
@@ -149,75 +152,59 @@
                     <textarea name="field5" class="field-style" placeholder="Notes:"></textarea>
                 </li>
 
-                <li>
-                    <input type="submit" value="Save Work Order" />
-                </li>
                 <div class="board">
                     <p>Repaired Items</p>
-                       <ul class="lists">
+                    <ul class="lists">
+                        <li class="list-wrapper">
+                            <div>
+                                <h3>Example Item</h3>
+                                <ul class="list">
+                                    <li>
+                                        <div class="card">example part</div>
+                                    </li>
+                                    <li>
+                                        <div class="card">example part</div>
+                                    </li>
+                                    <li>
+                                        <div class="card">example part</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
                         <li class="add-list-wrapper">
                             <!--                <AddForm type="list" onAdd={title => this.addList(title)}/>-->
-                            <input type="submit" value="Add New Device"/>
+                            <input type="submit" value="Add New Device" />
                             <!--   https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/list.js            -->
                             <div>
                                 <p>Repaired Device Form</p>
                                 <ul class="list">
                                     <li>
                                         <!--                         <AddForm type="card" onAdd={text => this.addCard(text)}/>-->
-                                        <input type="submit" value="Add Parts"/>
+                                        <input type="submit" value="Add Parts" />
                                         <!--    https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/card.js          -->
                                         <div class="card">
-                                            <li>
-                                                <label>Parts List</label>
-                                                <select name="field5" class="field-full">
-                                                    <option value="Part#1">Part#1</option>
-                                                    <option value="Part#2">Part#2</option>
-                                                    <option value="Part#3">Part#3</option>
-                                                </select>
-                                            </li>
-
-                                            DROP DOWN: PART NAME | COST | PRICE
-                                        </div>
+                                    <li>
+                                        <label>Parts List</label>
+                                        <select name="field5" class="field-full">
+                                            <option value="Part#1">Part#1</option>
+                                            <option value="Part#2">Part#2</option>
+                                            <option value="Part#3">Part#3</option>
+                                        </select>
                                     </li>
-                                </ul>
+
+                                    DROP DOWN: PART NAME | COST | PRICE
                             </div>
                         </li>
                     </ul>
                 </div>
+                </li>
             </ul>
-        </form>
     </div>
-
-
-<!--********************************************-->
-<!--WORKORDER Board > List > Card general layout-->
-<!--********************************************-->
-
-<!--    https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/board.js-->
-    <div class="board">
-        <h2>WORK ORDER FORM</h2>
-        <ul class="lists">
-            LIST OF REPAIRED ITEMS
-            <li class="add-list-wrapper">
-<!--                <AddForm type="list" onAdd={title => this.addList(title)}/>-->
-                <a class="btn btn-full scroll" href="#learn-more">ADD REPAIRED DEVICE</a>
-<!--   https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/list.js            -->
-                   <div>
-                    <h3>REPAIRED DEVICE FORM</h3>
-                       <ul class="list">
-                        <li>
-<!--                         <AddForm type="card" onAdd={text => this.addCard(text)}/>-->
-                            <a class="btn btn-full scroll" href="#learn-more">ADD PARTS REPLACED</a>
-<!--    https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/card.js          -->
-                            <div class="card">
-                                DROP DOWN: PART NAME | COST | PRICE
-                            </div>
-                        TECH NOTES:
-                        </li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
+    <li>
+        <input type="submit" value="Save Work Order" />
+    </li>
+    </ul>
+    </form>
     </div>
 </body>
 </html>
