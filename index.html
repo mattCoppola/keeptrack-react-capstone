@@ -151,6 +151,9 @@
                 <li>
                     <textarea name="field5" class="field-style" placeholder="Notes:"></textarea>
                 </li>
+                <li>
+                    <input type="submit" value="Save Work Order" />
+                </li>
 
                 <div class="board">
                     <p>Repaired Items</p>
@@ -200,11 +203,61 @@
                 </li>
             </ul>
     </div>
-    <li>
-        <input type="submit" value="Save Work Order" />
-    </li>
     </ul>
     </form>
     </div>
+
+    <!--section for login modal-->
+    <section id="login">
+        <div class="login-wrapper">
+            <h3>Log in</h3>
+            <div class="login-close">
+                <button>&times;</button>
+            </div>
+            <div class="login-form">
+                <form role="form" aria-live="assertive">
+                    <fieldset>
+                        <legend>Login Form</legend>
+                        <label for="login-username">Username</label>
+                        <input type="text" name="username" id="login-username" placeholder="Enter Username" value="demo" required>
+                        <label for="login-password">Password</label>
+                        <input type="password" name="password" id="login-password" placeholder="Enter Password" value="demo123" required>
+                        <button type="submit" id="login-button">Log In</button>
+                        <br>
+                        <br>
+                        <div class="change-form">Need to <a href="" id="change-form-signup">Signup</a> ?</div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!--section for signup modal-->
+    <section id="signup">
+        <div class="signup-wrapper">
+            <h3>Sign Up</h3>
+            <div class="signup-close">
+                <button>&times;</button>
+            </div>
+            <div class="signup-form">
+                <form role="form" aria-live="assertive">
+                    <fieldset>
+                        <legend>Signup Form</legend>
+                        <label for="signup-username">Username</label>
+                        <input type="text" name="username" id="signup-username" placeholder="Enter Username" value="demo" required>
+                        <label for="signup-password">Password<span id="password-strength"></span></label>
+                        <input type="password" name="password" id="signup-password" placeholder="Enter Password" value="demo123" minlength="6" required>
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm Password" value="demo123" required>
+                        <button type="submit" id="signup-button">Sign Up</button>
+                        <br>
+                        <br>
+                        <div class="change-form">Have an account? <a href="" id="change-form-login">Login</a></div>
+
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
