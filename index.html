@@ -61,5 +61,103 @@
 
         </div>
     </footer>
+    <div class="row">
+        <div class="col span-1-of-2 work-orders-list">
+            <h2>Completed Work Orders</h2>
+            <table class="work-orders">
+                <tr>
+                    <th>Created By</th>
+                    <th>Date</th>
+                    <th>Case #</th>
+                    <th>No. of Items</th>
+                </tr>
+                <tr>
+                    <td>Matt C</td>
+                    <td>12/21/2018</td>
+                    <td>SC1085629</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Matt C</td>
+                    <td>12/21/2018</td>
+                    <td>SC1085629</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Matt C</td>
+                    <td>12/21/2018</td>
+                    <td>SC1085629</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Matt C</td>
+                    <td>12/21/2018</td>
+                    <td>SC1085629</td>
+                    <td>4</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="col span-1-of-2 inventory-levels">
+            <h2>Current Inventory Levels</h2>
+            <table class="inventory-table">
+                <tr>
+                    <th>Part Number</th>
+                    <th>Cost</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                </tr>
+                <tr>
+                    <td>Main-board</td>
+                    <td>$290</td>
+                    <td>$350</td>
+                    <td>21</td>
+                </tr>
+                <tr>
+                    <td>Case</td>
+                    <td>$60</td>
+                    <td>$110</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>Function-brd</td>
+                    <td>$45</td>
+                    <td>$90</td>
+                    <td>33</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+<!--********************************************-->
+<!--WORKORDER Board > List > Card general layout-->
+<!--********************************************-->
+
+<!--    https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/board.js-->
+    <div class="board">
+        <h2>WORK ORDER FORM</h2>
+        <ul class="lists">
+            LIST OF REPAIRED ITEMS
+            <li class="add-list-wrapper">
+<!--                <AddForm type="list" onAdd={title => this.addList(title)}/>-->
+                <a class="btn btn-full scroll" href="#learn-more">ADD REPAIRED DEVICE</a>
+<!--   https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/list.js            -->
+                   <div>
+                    <h3>REPAIRED DEVICE FORM</h3>
+                       <ul class="list">
+                        <li>
+<!--                         <AddForm type="card" onAdd={text => this.addCard(text)}/>-->
+                            <a class="btn btn-full scroll" href="#learn-more">ADD PARTS REPLACED</a>
+<!--    https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/card.js          -->
+                            <div class="card">
+                                DROP DOWN: PART NAME | COST | PRICE
+                            </div>
+                        TECH NOTES:
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
 </body>
 </html>
