@@ -129,6 +129,66 @@
         </div>
     </div>
 
+    <div class=create-work-order>
+        <form class="form-style-9">
+            <ul>
+                <li>
+                    <input type="text" name="field1" class="field-style field-split align-left" placeholder="User Name" />
+                    <input type="text" name="field2" class="field-style field-split align-right" placeholder="Case #" />
+
+                </li>
+                <li>
+                    <label>Customer</label>
+                    <select name="field4" class="field-full">
+                        <option value="Cust#1">Cust#1</option>
+                        <option value="Cust#2">Cust#2</option>
+                        <option value="Cust#3">Cust#3</option>
+                    </select>
+                </li>
+                <li>
+                    <textarea name="field5" class="field-style" placeholder="Notes:"></textarea>
+                </li>
+
+                <li>
+                    <input type="submit" value="Save Work Order" />
+                </li>
+                <div class="board">
+                    <p>Repaired Items</p>
+                       <ul class="lists">
+                        <li class="add-list-wrapper">
+                            <!--                <AddForm type="list" onAdd={title => this.addList(title)}/>-->
+                            <input type="submit" value="Add New Device"/>
+                            <!--   https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/list.js            -->
+                            <div>
+                                <p>Repaired Device Form</p>
+                                <ul class="list">
+                                    <li>
+                                        <!--                         <AddForm type="card" onAdd={text => this.addCard(text)}/>-->
+                                        <input type="submit" value="Add Parts"/>
+                                        <!--    https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/card.js          -->
+                                        <div class="card">
+                                            <li>
+                                                <label>Parts List</label>
+                                                <select name="field5" class="field-full">
+                                                    <option value="Part#1">Part#1</option>
+                                                    <option value="Part#2">Part#2</option>
+                                                    <option value="Part#3">Part#3</option>
+                                                </select>
+                                            </li>
+
+                                            DROP DOWN: PART NAME | COST | PRICE
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </ul>
+        </form>
+    </div>
+
+
 <!--********************************************-->
 <!--WORKORDER Board > List > Card general layout-->
 <!--********************************************-->
