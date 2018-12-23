@@ -460,16 +460,20 @@ footer .btn-full:visited {
     color: black;
 }
 
+/*
 .board .add-form {
     align-self: flex-start;
 }
+*/
 
 
 /*BOARD CSS BASIC*/
+/*
 .lists {
     display: flex;
     align-items: flex-start;
 }
+*/
 
 .list-wrapper {
     background: #E0E0E0;
