@@ -79,10 +79,10 @@ h1 {
 /*LINKS*/
 a:link,
 a:visited {
-    color: #228ce6;
+    color: #f68819;
     text-decoration: none;
     padding-bottom: 1px;
-    border-bottom: 1px solid #228ce6;
+    border-bottom: 1px solid #f68819;
 }
 
 a:hover,
@@ -108,9 +108,9 @@ input[type="submit"] {
 .btn-full:link,
 .btn-full:visited,
 input[type="submit"] {
-    background-color: #228ce6;
-    border: 1px solid #228ce6;
-    color: #fff;
+    background-color: #f68819;
+    border: 1px solid #f68819;
+    color: #333333;
     /*    margin-right: 15px;*/
 }
 
@@ -118,14 +118,14 @@ input[type="submit"] {
 .btn:active,
 input[type="submit"]:hover,
 input[type="submit"]:active {
-    background-color: #229be6;
+    background-color: #e68819;
 }
 
 .btn-full:hover,
 .btn-full:active,
 input[type="submit"]:hover,
 input[type="submit"]:active {
-    border: 1px solid #229be6;
+    border: 1px solid #e68819;
 }
 
 /*---------------------*/
@@ -209,7 +209,7 @@ nav#user {
 
 .main-nav li a:hover,
 .main-nav li a:active {
-    border-bottom: 2px solid #228ce6;
+    border-bottom: 2px solid #f68819;
 }
 
 .hamburger a {
@@ -285,7 +285,7 @@ nav#user {
     position: absolute;
     font-size: 175%;
     font-weight: bold;
-    color: #228ce6;
+    color: #f68819;
     left: 1.1rem;
     top: 1rem;
 }
@@ -349,7 +349,7 @@ nav#user {
     padding: .7rem 0;
     border-style: none;
     outline: none;
-    background-color: #228ce6;
+    background-color: #f68819;
     color: white;
     font-size: 80%;
     font-weight: bold;
@@ -360,7 +360,7 @@ nav#user {
 .login-form button:hover,
 .signup-form button:hover {
     cursor: pointer;
-    background-color: #229be6;
+    background-color: #e68819;
 }
 
 .left {
@@ -538,6 +538,10 @@ tr:nth-child(even) {
 }
 
 /*WORK ORDER FORM STYLING*/
+.work-order {
+    background: #6c6c6c;
+}
+
 .create-work-order{
     max-width: 800px;
     background: #FAFAFA;
@@ -545,7 +549,7 @@ tr:nth-child(even) {
     margin: 50px auto;
     box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
     border-radius: 10px;
-    border: 6px solid #305A72;
+    border: 6px solid #f68819;
 }
 .create-work-order ul{
     padding:0;
@@ -563,15 +567,15 @@ tr:nth-child(even) {
     -moz-box-sizing: border-box;
     padding: 8px;
     outline: none;
-    border: 1px solid #B0CFE0;
+    border: 1px solid #ffd5aa;
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
     -o-transition: all 0.30s ease-in-out;
 
 }.create-work-order ul li  .field-style:focus{
-    box-shadow: 0 0 5px #B0CFE0;
-    border:1px solid #B0CFE0;
+    box-shadow: 0 0 5px #ffd5aa;
+    border:1px solid #ffd5aa;
 }
 .create-work-order ul li .field-split{
     width: 49%;
@@ -591,20 +595,22 @@ tr:nth-child(even) {
 }
 .create-work-order ul li input[type="button"],
 .create-work-order ul li input[type="submit"] {
+/*
     -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
     -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
     box-shadow: inset 0px 1px 0px 0px #3985B1;
-    background-color: #216288;
-    border: 1px solid #17445E;
+*/
+    background-color: #6c6c6c;
+    border: 1px solid #6c6c6c;
     display: inline-block;
     cursor: pointer;
-    color: #FFFFFF;
+    color: #fff;
     padding: 8px 18px;
     text-decoration: none;
     font: 12px Arial, Helvetica, sans-serif;
 }
 .create-work-order ul li input[type="button"]:hover,
 .create-work-order ul li input[type="submit"]:hover {
-    background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);
-    background-color: #28739E;
+/*    background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);*/
+    background-color: #e68819;
 }
