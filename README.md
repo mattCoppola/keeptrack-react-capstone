@@ -21,7 +21,9 @@ This website is a basic tool for small businesses operating in the repair servic
 
 
 ## Wire Frames
+![Landing Page & Learn More](github-images/landingpage-wireframe.JPG)
 
+![User Dashbord](github-images/dashboard-wireframe.JPG)
 
 ## Technical
 * Front-End: HTML5 | CSS3 | JavaScript ES6 | React | Redux
