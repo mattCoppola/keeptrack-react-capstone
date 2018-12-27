@@ -10,10 +10,8 @@ This website is a basic tool for small businesses operating in the repair servic
 * As a visitor I want to be able to register/login so that I can access the app
 * As a registered user I want to create a new repair order so I can log my repair work
 * As a registered user on a work order creation page, I want to add a new item repaired so that I can include all parts used
-* As a registered user I want to print a saved work order, so that I can have a formatted template for the customer
-* As a registered user I want to view the workorder dashboard so that I can see all completed work orders.
+* As a registered user I want to view the workorder dashboard so that I can see all completed work orders
 * As a registered user I want to view the inventory list so I know what the current stock is for each part
-* As a registered user I want to click on an inventory item so that I can get detailed info on the item
 * As a registered user I want to view the metrics report so I know our team's work progress (daily and weekly totals)
 
 ## Screenshots
@@ -31,6 +29,6 @@ This website is a basic tool for small businesses operating in the repair servic
 
 ## Development Roadmap
 This is v1.0 of the app, with basic RESTful features, but future enhancements are expected to include:
-*
-*
+* Registered users can print saved work orders, so they can provide a formatted template to the customer.
+* Registered users can click on an inventory item in the inventory list to get a detailed view of the item (picture, description, cost, price).
 
