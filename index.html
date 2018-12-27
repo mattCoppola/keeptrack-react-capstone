@@ -37,7 +37,7 @@
             <div class="col span-1-of-3 box">
                 <img src="css/images/tools.jpg" alt="tools">
                 <h3>Work Order Creation</h3>
-                <p class="long-copy">Create a work order with ease!  Users can fill out a simple form with the ability to add multiple repaired devices, and selecting parts used for the repair</p>
+                <p class="long-copy">Create a work order with ease! Users can fill out a simple form with the ability to add multiple repaired devices, and selecting parts used for the repair</p>
             </div>
             <div class="col span-1-of-3 box">
                 <img src="css/images/inventory.jpg" alt="inventory">
@@ -47,7 +47,7 @@
             <div class="col span-1-of-3 box">
                 <img src="css/images/data.jpg" alt="data">
                 <h3>Real Time Updates</h3>
-                <p class="long-copy">Up to date metrics provides your team with current results.  In a results based industry, you will always know if you are acheiving your goals.   </p>
+                <p class="long-copy">Up to date metrics provides your team with current results. In a results based industry, you will always know if you are acheiving your goals. </p>
             </div>
         </div>
     </section>
@@ -66,7 +66,7 @@
         </div>
     </footer>
 
-        <div class="row">
+    <div class="row">
         <div class="col span-1-of-2 work-orders-list">
             <h2>Completed Work Orders</h2>
             <table class="work-orders">
@@ -133,29 +133,23 @@
             </table>
         </div>
     </div>
-   <section class="work-order">
-    <div class=create-work-order>
-        <h2>Work Order Form</h2>
-        <!--        https://www.sanwebe.com/2014/08/css-html-forms-designs-->
-        <form class="form-style-9">
-            <ul>
-                <li>
-                    <input type="text" name="field1" class="field-style field-split align-left" placeholder="User Name" />
-                    <input type="text" name="field2" class="field-style field-split align-right" placeholder="Case #" />
+    <section class="work-order">
+        <div class=create-work-order>
+            <h2>Work Order Form</h2>
+            <form>
+                <input type="text" name="field1" class="field1 align-left" placeholder="User Name" />
+                <input type="text" name="field2" class="field2 align-left" placeholder="Case #" />
 
-                </li>
-                <li>
-                    <label>Customer</label>
-                    <select name="field4" class="field-full">
-                        <option value="Cust#1">Cust#1</option>
-                        <option value="Cust#2">Cust#2</option>
-                        <option value="Cust#3">Cust#3</option>
-                    </select>
-                </li>
-                <li>
-                    <textarea name="field5" class="field-style" placeholder="Notes:"></textarea>
-                </li>
+                <div class="field3 field-full">
+                        <label>Customer</label>
+                        <select>
+                            <option value="Cust#1">Cust#1</option>
+                            <option value="Cust#2">Cust#2</option>
+                            <option value="Cust#3">Cust#3</option>
+                        </select>
+                </div>
 
+                <textarea name="field4" class="field-style" placeholder="Notes:"></textarea>
 
                 <div class="board">
                     <p>Repaired Items</p>
@@ -188,31 +182,25 @@
                                         <input type="submit" value="Add Parts" />
                                         <!--    https://github.com/Thinkful-Ed/redux-trello-async-thunk/blob/master/client/src/components/card.js          -->
                                         <div class="card">
-                                            <li>
-                                                <label>Parts List</label>
-                                                <select name="field5" class="field-full">
-                                                    <option value="Part#1">Part#1</option>
-                                                    <option value="Part#2">Part#2</option>
-                                                    <option value="Part#3">Part#3</option>
-                                                </select>
-                                            </li>
-
-                                            DROP DOWN: PART NAME | COST | PRICE
-                                        </div>
+                                    <li>
+                                        <label>Parts List</label>
+                                        <select name="field5" class="field-full">
+                                            <option value="Part#1">Part#1</option>
+                                            <option value="Part#2">Part#2</option>
+                                            <option value="Part#3">Part#3</option>
+                                        </select>
                                     </li>
-                                </ul>
                             </div>
                         </li>
                     </ul>
-                    <ul class="lists">
-                        <li>
-                            <input type="submit" value="Save Work Order" />
-                        </li>
-                    </ul>
                 </div>
-            </ul>
-    </form>
-    </div>
+                </li>
+                </ul>
+
+                <input type="submit" value="Save Work Order" />
+        </div>
+        </form>
+        </div>
     </section>
     <!--section for login modal-->
     <section id="login">

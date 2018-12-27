@@ -37,24 +37,24 @@ export default class AddPartsForm extends React.Component {
                 <a href="#">Add a {this.props.type}...</a>
         </div>
         );
-    }
+        }
 
-    return (
-        <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
+        return (
+            <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
 
-            {/*<label>Add Part</label>*/}
-            <select value={this.state.value} onChange={this.handleChange} name="field5" class="field-full">
-                    <option value=""></option>
-                    <option value="Part#1">Part1</option>
-                    <option value="Part#2">Part2</option>
-                    <option value="Part#3">Part3</option>
-            </select>
+                {/*<label>Add Part</label>*/}
+                <select value={this.state.value} onChange={this.handleChange} name="field5" class="field-full">
+                        <option value=""></option>
+                        <option value="Part#1">Part1</option>
+                        <option value="Part#2">Part2</option>
+                        <option value="Part#3">Part3</option>
+                </select>
 
-            <button>Add</button>
-            <button type="button" onClick={() => this.setEditing(false)}>
-        Cancel</button>
-        </form>
-        );
+                <button>Add</button>
+                <button type="button" onClick={() => this.setEditing(false)}>
+            Cancel</button>
+            </form>
+            );
     }
 }
 
@@ -89,15 +89,15 @@ export default class AddItemForm extends React.Component {
                 <a href="#">Add a {this.props.type}...</a>
         </div>
         );
-    }
+        }
 
-    return (
-            <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
-                <input type="text" ref={input => this.textInput = input} />
-                <button>Add</button>
-                <button type="button" onClick={() => this.setEditing(false)}>Cancel</button>
-            </form>
-        );
+        return (
+                <form className="card add-form" onSubmit={(e) => this.onSubmit(e)}>
+                    <input type="text" ref={input => this.textInput = input} />
+                    <button>Add</button>
+                    <button type="button" onClick={() => this.setEditing(false)}>Cancel</button>
+                </form>
+            );
     }
 }
 
