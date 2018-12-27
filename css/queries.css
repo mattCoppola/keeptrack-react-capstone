@@ -106,13 +106,12 @@
         font-size: 150%;
     }
 
-    .next-steps h3,
-    .next-steps a {
-        font-size: 150%;
+    .next-steps h2 {
+        font-size: 250%;
     }
-
-    .next-steps {
-        font-size: 70%;
+    .next-steps h3,
+    .next-steps p {
+        font-size: 150%;
     }
 
     .next-steps img {
@@ -132,9 +131,14 @@
         padding: 25px 25px;
     }
 
+    .hero-text-box {
+        font-size: 150%;
+    }
+
     .hero-text-box .btn {
         width: 7.4rem;
         margin-top: 15px;
+        font-size: 90%;
     }
 
     .hero-text-box .btn:last-of-type {
@@ -142,8 +146,14 @@
     }
 
     .next-steps h2 {
-        font-size: 195%
+        font-size: 250%;
     }
+
+    .next-steps h3,
+    .next-steps p {
+        font-size: 155%
+    }
+
 
     .next-steps img {
         padding: 20px;
