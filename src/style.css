@@ -1,0 +1,678 @@
+/*---------------------*/
+/* Basic Setup */
+/*---------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background-color: #fff;
+    color: #555;
+    font-family: 'Lato', 'Arial', sans-serif;
+    font-weight: 300;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+}
+
+.clearfix {
+    zoom: 1
+}
+
+.clearfix:after {
+    content: '.';
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
+fieldset legend {
+    position: absolute;
+    left: -5000px;
+}
+
+fieldset {
+    border: 0;
+    padding: 0;
+    margin-left: 0px;
+}
+
+/*---------------------*/
+/* Reusable Components */
+/*---------------------*/
+
+.row {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 40px 0;
+}
+
+/*HEADINGS*/
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 300;
+    /*    text-transform: uppercase;*/
+}
+
+h1 {
+    color: #fff;
+}
+
+/*PARAGRAPHS*/
+.long-copy {
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+    padding-bottom: 3%;
+    text-align: left;
+}
+
+/*LINKS*/
+a:link,
+a:visited {
+    color: #f68819;
+    text-decoration: none;
+    padding-bottom: 1px;
+    border-bottom: 1px solid #f68819;
+}
+
+a:hover,
+a:active {
+    color: #555;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s, color 0.2s;
+}
+
+/*BUTTONS*/
+
+.btn:link,
+.btn:visited,
+input[type="submit"] {
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 300;
+    text-decoration: none;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.btn-full:link,
+.btn-full:visited,
+input[type="submit"] {
+    background-color: #f68819;
+    border: 1px solid #f68819;
+    color: #333333;
+    /*    margin-right: 15px;*/
+}
+
+.btn:hover,
+.btn:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+    background-color: #e68819;
+}
+
+.btn-full:hover,
+.btn-full:active,
+input[type="submit"]:hover,
+input[type="submit"]:active {
+    border: 1px solid #e68819;
+}
+
+/*---------------------*/
+/* Header */
+/*---------------------*/
+
+header#home {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(images/computerparts.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+header#user {
+    background-color: #333;
+}
+
+nav#user {
+    background-color: #333;
+}
+
+.hero-text-box {
+    position: absolute;
+    text-align: center;
+    width: 1140px;
+    top: 65%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.hero-blur {
+    width: 61%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: .5em;
+    padding-bottom: .5em;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-text-box h1 {
+    font-size: 100%;
+}
+
+.hero-text-box .btn {
+    width: 11rem;
+    margin-top: 15px;
+}
+
+.hero-text-box .btn:last-of-type {
+    margin-left: 1rem;
+}
+
+.logo {
+    float: left;
+    margin-top: 20px;
+}
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 40px;
+}
+
+.main-nav li {
+    display: inline-block;
+    margin: 20px;
+    font-weight: 400;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited {
+    padding: 8px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 90%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active {
+    border-bottom: 2px solid #f68819;
+}
+
+.hamburger a {
+    display: none;
+}
+
+/*---------------------*/
+/* Next Steps */
+/*---------------------*/
+
+.next-steps {
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.next-steps h2 {
+    margin-bottom: 30px;
+}
+
+.next-steps h3 {
+    font-size: 80%;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.next-steps img {
+    padding: 30px;
+    height: 200px;
+}
+
+/*---------------------*/
+/* Login Modal & Signup Modal & all Modals */
+/*---------------------*/
+
+#login,
+#signup,
+#about-us {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.login-wrapper,
+.signup-wrapper,
+.about-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    width: 40%;
+    height: 50%;
+    margin: 0 auto;
+    min-height: 27rem;
+    max-width: 30rem;
+    border-radius: 5px;
+}
+
+.signup-wrapper {
+    min-height: 27rem;
+}
+
+.login-wrapper {
+    min-height: 22rem;
+}
+
+.login-wrapper h3,
+.signup-wrapper h3 {
+    position: absolute;
+    font-size: 175%;
+    font-weight: bold;
+    color: #f68819;
+    left: 1.1rem;
+    top: 1rem;
+}
+
+.login-close,
+.signup-close,
+.about-close {
+    text-align: right;
+    padding-bottom: 2rem;
+}
+
+.login-close button,
+.signup-close button,
+.about-close button {
+    font-size: 150%;
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    background-color: #ffffff;
+    border-top-right-radius: 5px;
+    outline: none;
+}
+
+.login-close button:hover,
+.signup-close button:hover,
+.about-close button:hover {
+    background-color: #ff4c4c;
+    color: #ffffff;
+    cursor: pointer;
+    border-bottom-left-radius: 5px;
+}
+
+.login-form,
+.signup-form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.login-form label,
+.signup-form label {
+    display: block;
+    font-weight: bold;
+    padding: .5rem 0;
+}
+
+.login-form input,
+.signup-form input {
+    display: block;
+    width: 100%;
+    border-style: none;
+    padding: .5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #cccccc;
+    outline: none;
+    font-size: 80%;
+}
+
+.login-form button,
+.signup-form button {
+    width: 100%;
+    padding: .7rem 0;
+    border-style: none;
+    outline: none;
+    background-color: #f68819;
+    color: white;
+    font-size: 80%;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+
+.login-form button:hover,
+.signup-form button:hover {
+    cursor: pointer;
+    background-color: #e68819;
+}
+
+.left {
+    float: left;
+    width: 50%;
+    padding-right: 10%;
+}
+
+.left.draw {
+    width: 30%;
+    padding-right: 5%;
+}
+
+.draw label {
+    font-size: 80%;
+}
+
+.clear {
+    clear: both;
+}
+
+.change-form {
+    text-align: center;
+}
+
+/*---------------------*/
+/* Footer */
+/*---------------------*/
+
+footer {
+    background-color: #333;
+    padding: 50px;
+    font-size: 80%;
+    text-align: center;
+}
+
+footer .btn-full:link,
+footer .btn-full:visited {
+    padding: 5px 15px;
+    margin-bottom: 20px;
+    font-size: 70%;
+}
+
+.social-links {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.social-links li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.social-links li:last-child {
+    margin-right: 0;
+}
+
+.social-links li a:link,
+.social-links li a:visited {
+    text-decoration: none;
+    border: 0;
+    color: #888;
+}
+
+/*************************************************/
+/** WORKORDER CSS SKETCH - BORROWED FROM TRELLO **/
+/*************************************************/
+
+/*ADD FORM BASICS*/
+.add-button {
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.add-button a {
+    text-decoration: none;
+}
+
+.add-list-wrapper > .add-button {
+    min-width: 200px;
+    background: #1565C0;
+}
+
+.add-list-wrapper > .add-button:hover {
+    background: #0D47A1;
+}
+
+.add-list-wrapper > .add-button a {
+    color: white;
+}
+
+.list .add-button:hover {
+    background: #BDBDBD;
+}
+
+.list .add-button a {
+    color: black;
+}
+
+.board .add-form {
+    width: 80%;
+/*    align-self: flex-start;*/
+}
+
+/*BOARD CSS BASIC*/
+.lists {
+    margin-top: 3%;
+    /*
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+*/
+}
+
+.list-wrapper {
+    background: #E0E0E0;
+    margin-bottom: 3%;
+    padding: 8px;
+    min-width: 200px;
+    border-radius: 4px;
+}
+
+.list-wrapper:first-child {
+    margin-left: 0;
+}
+
+.list-wrapper:last-child {
+    margin-right: 0;
+}
+
+/*LIST CSS BASIC*/
+.list {
+    background: #E0E0E0;
+    margin: 0 10px;
+    padding: 8px;
+    min-width: 200px;
+    border-radius: 4px;
+}
+
+.list:first-child {
+    margin-left: 0;
+}
+
+.list:last-child {
+    margin-right: 0;
+}
+
+/*CARD CSS BASIC*/
+.card {
+    background: #FAFAFA;
+    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+/* TABLES STYLING*/
+
+table.work-orders,
+table.inventory-table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table.work-orders {
+    width: 80%;
+}
+
+table.inventory-table {
+    width: 80%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    padding: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+/*WORK ORDER FORM STYLING*/
+.work-order {
+    background: #6c6c6c;
+}
+
+.create-work-order{
+    max-width: 800px;
+    background: #FAFAFA;
+    padding: 30px;
+    margin: 50px auto;
+    box-shadow: 1px 1px 25px rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+    border: 6px solid #f68819;
+}
+
+.lists,
+.list {
+    list-style: none;
+}
+
+.create-work-order input.align-left {
+    float:left;
+}
+.create-work-order input.align-right {
+    float:right;
+}
+
+.field1,
+.field2 {
+    width: 40%;
+}
+
+.field2 {
+    margin-left: 10%;
+}
+
+.field3 {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.field3 select {
+    width: 40%;
+}
+
+
+.field-full {
+    display: block;
+    clear: both;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 3%;
+}
+
+.create-work-order input[type="submit"] {
+    width: 20%;
+    font-size: 70%;
+    text-align: center;
+    margin-left: 0;
+    padding: .5em;
+}
+
+/*
+.create-work-order ul{
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+.create-work-order ul li{
+    display: block;
+    margin-bottom: 10px;
+    min-height: 35px;
+}
+.create-work-order ul li  .field-style{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding: 8px;
+    outline: none;
+    border: 1px solid #ffd5aa;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+
+}.create-work-order ul li  .field-style:focus{
+    box-shadow: 0 0 5px #ffd5aa;
+    border:1px solid #ffd5aa;
+}
+.create-work-order ul li .field-split{
+    width: 49%;
+}
+.create-work-order ul li .field-full{
+    width: 100%;
+}
+.create-work-order ul li input.align-left{
+    float:left;
+}
+.create-work-order ul li input.align-right{
+    float:right;
+}
+.create-work-order ul li textarea{
+    width: 100%;
+    height: 100px;
+}
+.create-work-order ul li input[type="button"],
+.create-work-order ul li input[type="submit"] {
+*/
+/*
+    -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
+    -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
+    box-shadow: inset 0px 1px 0px 0px #3985B1;
+*/
+/*
+    background-color: #6c6c6c;
+    border: 1px solid #6c6c6c;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    padding: 8px 18px;
+    text-decoration: none;
+    font: 12px Arial, Helvetica, sans-serif;
+}
+.create-work-order ul li input[type="button"]:hover,
+.create-work-order ul li input[type="submit"]:hover {
+*/
+/*    background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);*/
+/*
+    background-color: #e68819;
+}
+*/
