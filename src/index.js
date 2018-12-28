@@ -6,6 +6,7 @@ import './queries.css';
 import './normalize.css';
 import './grid.css';
 
+import Landing from './components/landingpage';
 import Dashboard from './components/dashboard';
 
 const WORKORDERS = [
@@ -105,9 +106,11 @@ const INVENTORY = [
 ];
 
 
-
 ReactDOM.render(
-    <Dashboard workorders={WORKORDERS} inventory={INVENTORY} />,
+    <React.Fragment>
+        <Landing/>
+        <Dashboard workorders={WORKORDERS} inventory={INVENTORY} />
+    </React.Fragment>,
     document.getElementById('root')
 );
 
