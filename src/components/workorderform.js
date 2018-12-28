@@ -12,6 +12,7 @@ export default class WorkorderForm extends React.Component {
 
         return (
             <section className="work-order">
+            <input type="submit" value="Create Work Order" />
                 <div className="create-work-order">
                     <h2>Work Order Form</h2>
                     <form>
@@ -27,7 +28,8 @@ export default class WorkorderForm extends React.Component {
                         </div>
                         <textarea name="field4" className="field-style" placeholder="Notes:" defaultValue={""}></textarea>
                     </form>
-                <RepairBoard repairs={this.props.repairs}/>
+                    <RepairBoard repairs={this.props.repairs}/>
+                    <input type="submit" value="Save Work Order" />
                 </div>
             </section>
         )

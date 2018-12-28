@@ -476,6 +476,12 @@ footer .btn-full:visited {
 */
 }
 
+.list-edit,
+.card-edit {
+    float: left;
+    margin-right: 2%;
+}
+
 .list-wrapper {
     background: #E0E0E0;
     margin-bottom: 3%;
