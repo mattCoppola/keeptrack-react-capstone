@@ -7,6 +7,7 @@ import './normalize.css';
 import './grid.css';
 
 import Landing from './components/landingpage';
+import Footer from './components/footer';
 import Dashboard from './components/dashboard';
 
 const WORKORDERS = [
@@ -108,7 +109,8 @@ const INVENTORY = [
 
 ReactDOM.render(
     <React.Fragment>
-        <Landing/>
+        <Landing />
+        <Footer />
         <Dashboard workorders={WORKORDERS} inventory={INVENTORY} />
     </React.Fragment>,
     document.getElementById('root')
