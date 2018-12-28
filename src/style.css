@@ -476,6 +476,7 @@ footer .btn-full:visited {
 */
 }
 
+
 .list-edit,
 .card-edit {
     float: left;
@@ -551,6 +552,16 @@ tr:nth-child(even) {
 /*WORK ORDER FORM STYLING*/
 .work-order {
     background: #6c6c6c;
+}
+
+.workorder-text-box {
+    color: #FFFFFF;
+    max-width: 800px;
+    margin: 50px auto;
+}
+
+.new-work-order {
+    margin-top: 1em;
 }
 
 .create-work-order{

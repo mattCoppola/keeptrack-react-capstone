@@ -12,7 +12,10 @@ export default class WorkorderForm extends React.Component {
 
         return (
             <section className="work-order">
-            <input type="submit" value="Create Work Order" />
+                <div className="workorder-text-box">
+                    <h2>Complete New Work Orders</h2>
+                    <input className="new-work-order" type="submit" value="Create Work Order" />
+                </div>
                 <div className="create-work-order">
                     <h2>Work Order Form</h2>
                     <form>
