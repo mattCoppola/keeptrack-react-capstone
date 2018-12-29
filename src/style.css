@@ -525,14 +525,13 @@ footer .btn-full:visited {
 }
 
 /*DASHBOARD STYLING*/
+/* TABLES STYLING*/
 
 .work-orders-list,
 .inventory-levels {
     padding-top: 5%;
     padding-bottom: 5%;
 }
-
-/* TABLES STYLING*/
 
 .work-orders-list h2,
 .inventory-levels h2 {
@@ -597,12 +596,14 @@ tr:nth-child(even) {
     list-style: none;
 }
 
+/*
 .create-work-order input.align-left {
     float:left;
 }
 .create-work-order input.align-right {
     float:right;
 }
+*/
 
 .field1,
 .field2 {
@@ -635,11 +636,12 @@ textarea {
 }
 
 .create-work-order input[type="submit"] {
-    width: 20%;
+/*    width: 20%;*/
+    margin-top: 3%;
     font-size: 70%;
     text-align: center;
-    margin-left: 0;
-    padding: .5em;
+/*    margin-left: 0;*/
+    padding: .5em 1em;
 }
 
 /*
