@@ -1,4 +1,4 @@
-import { LEARN_MORE } from './actions';
+import { LEARN_MORE, BACK_TO_TOP } from './actions';
 
 const initialState = {
     hello: "Hello World",
@@ -99,9 +99,11 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    console.log('reducer is connected');
     if (action.type === LEARN_MORE) {
-        console.log('Learning more...');
+        console.log('Reducer: Learning more...');
+    }
+    if (action.type === BACK_TO_TOP) {
+        console.log('Reducer: Back to the top');
     }
     return state;
 };

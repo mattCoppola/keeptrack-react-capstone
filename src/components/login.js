@@ -1,6 +1,11 @@
 import React from 'react';
+import {reduxForm, Field} from 'redux-form';
 
-export default class Login extends React.Component {
+export class Login extends React.Component {
+    onSubmit(values) {
+        console.log(values);
+    }
+
     render() {
         return (
             <section id="login">
@@ -10,13 +15,15 @@ export default class Login extends React.Component {
                         <button>×</button>
                     </div>
                     <div className="login-form">
-                        <form role="form" aria-live="assertive">
+                        <form
+                            onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+                            role="form" aria-live="assertive">
                             <fieldset>
                             <legend>Login Form</legend>
                             <label htmlFor="login-username">Username</label>
-                            <input type="text" name="username" id="login-username" placeholder="Enter Username" defaultValue="demo" required />
+                            <Field type="text" name="username" id="login-username" placeholder="Enter Username" defaultValue="demo" component="input" required />
                             <label htmlFor="login-password">Password</label>
-                            <input type="password" name="password" id="login-password" placeholder="Enter Password" defaultValue="demo123" required />
+                            <Field type="password" name="password" id="login-password" placeholder="Enter Password" defaultValue="demo123" component="input" required />
                             <button type="submit" id="login-button">Log In</button>
                             <br />
                             <br />
@@ -29,3 +36,7 @@ export default class Login extends React.Component {
         )
     }
 }
+
+export default reduxForm({
+    form: 'login'
+})(Login);
