@@ -9,6 +9,8 @@ import './grid.css';
 import Landing from './components/landingpage';
 import Footer from './components/footer';
 import Dashboard from './components/dashboard';
+import Signup from './components/signup';
+import Login from './components/login';
 
 const WORKORDERS = [
     {
@@ -112,6 +114,8 @@ ReactDOM.render(
         <Landing />
         <Footer />
         <Dashboard workorders={WORKORDERS} inventory={INVENTORY} />
+        <Signup />
+        <Login />
     </React.Fragment>,
     document.getElementById('root')
 );
