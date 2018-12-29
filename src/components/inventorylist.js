@@ -21,7 +21,7 @@ export default class InventoryList extends React.Component {
         return (
             <div className="col span-1-of-2 inventory-levels">
                 <h2>Current Inventory Levels</h2>
-                    <table>
+                    <table className="inventory-table">
                         <thead>
                             <tr>
                                 <th>Part Number</th>

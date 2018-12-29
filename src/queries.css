@@ -44,6 +44,20 @@
         height: 150px;
     }
 
+    .span-1-of-2.work-orders-list,
+    .span-1-of-2.inventory-levels {
+        width: 100%;
+        margin: 0;
+    }
+
+    table.work-orders {
+        width: 80%;
+    }
+
+    table.inventory-table {
+        width: 80%;
+    }
+
 }
 
 /*ipads from 481px to 767px*/

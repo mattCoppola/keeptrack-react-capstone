@@ -22,7 +22,7 @@ export default class WorkorderList extends React.Component {
         return (
                 <div className="col span-1-of-2 work-orders-list">
                     <h2>Completed Work Orders</h2>
-                    <table>
+                    <table className="work-orders">
                         <thead>
                             <tr>
                                 <th>Created By</th>

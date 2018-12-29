@@ -524,25 +524,43 @@ footer .btn-full:visited {
     border-radius: 4px;
 }
 
+/*DASHBOARD STYLING*/
+
+.work-orders-list,
+.inventory-levels {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
 /* TABLES STYLING*/
+
+.work-orders-list h2,
+.inventory-levels h2 {
+    text-align: center;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.work-orders,
+.inventory-table {
+    margin: 0 auto;
+}
 
 table.work-orders,
 table.inventory-table {
+    table-layout: fixed;
     border-collapse: collapse;
     text-align: center;
+    display: block;
+    height: 300px;
+    overflow-y: scroll;
 }
 
-table.work-orders {
-    width: 80%;
-}
-
-table.inventory-table {
-    width: 80%;
-}
 
 td, th {
     border: 1px solid #dddddd;
     padding: 10px;
+    width: 100%;
 }
 
 tr:nth-child(even) {
