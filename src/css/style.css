@@ -246,7 +246,7 @@ nav#user {
 /*---------------------*/
 
 #login,
-/*#signup,*/
+#signup,
 #about-us {
     display: none;
     position: fixed;

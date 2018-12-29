@@ -28,3 +28,9 @@ export const backToTop = () => ({
 // Save Work Order Button -> user clicks button, data is sent to the server
 //    Completed Work Orders table is updated with the Work Order
 //    Inventory List table shows updated inventory counts after the save
+
+//
+//Work Order Form - 3 Form Components
+//    1.  workorderform.js
+//    2.  additemform.js
+//    3.  addpartsform.js
