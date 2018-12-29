@@ -1,9 +1,9 @@
 import React from 'react';
 
-import '../style.css';
-import '../queries.css';
-import '../normalize.css';
-import '../grid.css';
+import '../css/style.css';
+import '../css/queries.css';
+import '../css/normalize.css';
+import '../css/grid.css';
 
 export default class AddItemForm extends React.Component {
     constructor(props) {

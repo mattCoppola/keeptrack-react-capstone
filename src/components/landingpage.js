@@ -1,15 +1,18 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-import tools from '../images/tools.jpg';
-import inventory from '../images/inventory.jpg';
-import data from '../images/data.jpg'
+import {learnMore} from '../actions';
 
-import '../style.css';
-import '../queries.css';
-import '../normalize.css';
-import '../grid.css';
+import tools from '../css/images/tools.jpg';
+import inventory from '../css/images/inventory.jpg';
+import data from '../css/images/data.jpg'
 
-export default class Landing extends React.Component {
+import '../css/style.css';
+import '../css/queries.css';
+import '../css/normalize.css';
+import '../css/grid.css';
+
+export class Landing extends React.Component {
 
     render() {
         return (
@@ -29,7 +32,7 @@ export default class Landing extends React.Component {
                         <div className="hero-blur">
                             <h1>Repair Order and Inventory Management software that's easy to use</h1>
                         </div>
-                        <a className="btn btn-full scroll" href="#learn-more">Learn More</a>
+                        <a onClick={() => this.props.dispatch(learnMore())} className="btn btn-full scroll" href="#learn-more">Learn More</a>
                     </div>
                 </header>
                 <section id="next-steps" className="next-steps">
@@ -56,3 +59,9 @@ export default class Landing extends React.Component {
         );
     }
 }
+
+const mapStateToProps = (state) => ({
+    hello: state.hello
+})
+
+export default connect(mapStateToProps)(Landing);

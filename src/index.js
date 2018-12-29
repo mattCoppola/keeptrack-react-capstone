@@ -1,10 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
 
-import './style.css';
-import './queries.css';
-import './normalize.css';
-import './grid.css';
+import store from './store';
+
+import './css/style.css';
+import './css/queries.css';
+import './css/normalize.css';
+import './css/grid.css';
 
 import Landing from './components/landingpage';
 import Footer from './components/footer';
@@ -110,13 +113,15 @@ const INVENTORY = [
 
 
 ReactDOM.render(
-    <React.Fragment>
-        <Landing />
-        <Footer />
-        <Dashboard workorders={WORKORDERS} inventory={INVENTORY} />
-        <Signup />
-        <Login />
-    </React.Fragment>,
+    <Provider store={store}>
+        <React.Fragment>
+            <Landing />
+            <Footer />
+            <Dashboard workorders={WORKORDERS} inventory={INVENTORY} />
+            <Signup />
+            <Login />
+        </React.Fragment>
+    </Provider>,
     document.getElementById('root')
 );
 
