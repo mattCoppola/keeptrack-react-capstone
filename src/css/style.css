@@ -246,7 +246,7 @@ nav#user {
 /*---------------------*/
 
 #login,
-#signup,
+/*#signup,*/
 #about-us {
     display: none;
     position: fixed;
@@ -261,12 +261,12 @@ nav#user {
 .signup-wrapper,
 .about-wrapper {
     position: fixed;
-    top: 50%;
+    top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: #ffffff;
     width: 40%;
-    height: 50%;
+    height: 40%;
     margin: 0 auto;
     min-height: 27rem;
     max-width: 30rem;
@@ -329,6 +329,7 @@ nav#user {
 .signup-form label {
     display: block;
     font-weight: bold;
+    text-align: left;
     padding: .5rem 0;
 }
 

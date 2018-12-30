@@ -25,7 +25,9 @@ export class Landing extends React.Component {
                                 <li className="signup">
                                     <Link to="/auth/signup">Sign Up</Link>
                                 </li>
-                                <li className="login"><a href="#">Login</a></li>
+                                <li className="login">
+                                    <Link to="/auth/login">Login</Link>
+                                </li>
                                 <li className="hamburger"><a href="#"><i className="fas fa-bars" /></a></li>
                             </ul>
                         </div>
@@ -34,7 +36,7 @@ export class Landing extends React.Component {
                         <div className="hero-blur">
                             <h1>Repair Order and Inventory Management software that's easy to use</h1>
                         </div>
-                        <a onClick={() => this.props.dispatch(learnMore())} className="btn btn-full scroll" href="#learn-more">Learn More</a>
+                        <a onClick={() => this.props.dispatch(learnMore())} className="btn btn-full scroll" href="#next-steps">Learn More</a>
                     </div>
                 </header>
                 <section id="next-steps" className="next-steps">
