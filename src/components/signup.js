@@ -48,7 +48,7 @@ export class Signup extends React.Component {
                                     <button type="submit" id="signup-button">Sign Up</button>
                                     <br />
                                     <br />
-                                    <div className="change-form">Have an account? <a href id="change-form-login">Login</a></div>
+                                    <div className="change-form">Have an account? <Link to="/auth/login">Login</Link></div>
                                         </fieldset>
                                     </form>
                                 </div>
