@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Link, Redirect } from "react-router-dom";
 
 import {learnMore} from '../actions';
 
@@ -13,8 +14,6 @@ import '../css/normalize.css';
 import '../css/grid.css';
 
 export class Landing extends React.Component {
-
-
     render() {
         return (
             <div>
@@ -23,7 +22,9 @@ export class Landing extends React.Component {
                         <div className="row">
                             <h1 className="logo">Keeptrack - BETA</h1>
                             <ul className="main-nav">
-                                <li className="signup"><a href="#">Sign Up</a></li>
+                                <li className="signup">
+                                    <Link to="/auth/signup">Sign Up</Link>
+                                </li>
                                 <li className="login"><a href="#">Login</a></li>
                                 <li className="hamburger"><a href="#"><i className="fas fa-bars" /></a></li>
                             </ul>

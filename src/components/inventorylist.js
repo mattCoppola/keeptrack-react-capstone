@@ -8,16 +8,16 @@ import '../css/grid.css';
 export default class InventoryList extends React.Component {
     render() {
         const rows = [];
-        this.props.inventory.forEach((item) => {
-            rows.push(
-                <tr>
-                <td>{item.partNumber}</td>
-                <td>{item.cost}</td>
-                <td>{item.price}</td>
-                <td>{item.qty}</td>
-                </tr>
-            )
-        });
+//        this.props.inventory.forEach((item) => {
+//            rows.push(
+//                <tr>
+//                <td>{item.partNumber}</td>
+//                <td>{item.cost}</td>
+//                <td>{item.price}</td>
+//                <td>{item.qty}</td>
+//                </tr>
+//            )
+//        });
         return (
             <div className="col span-1-of-2 inventory-levels">
                 <h2>Current Inventory Levels</h2>

@@ -9,6 +9,9 @@ import './css/queries.css';
 import './css/normalize.css';
 import './css/grid.css';
 
+//IMPORT APP FOR ROUTER / ROUTES
+import App from './app';
+
 import Landing from './components/landingpage';
 import Footer from './components/footer';
 import Dashboard from './components/dashboard';
@@ -115,13 +118,13 @@ const INVENTORY = [
 ReactDOM.render(
     <Provider store={store}>
         <React.Fragment>
-            <Landing />
-            <Footer />
-            <Dashboard workorders={WORKORDERS} inventory={INVENTORY} />
-            <Signup />
-            <Login />
+        <App workorders={WORKORDERS} inventory={INVENTORY} />
         </React.Fragment>
     </Provider>,
     document.getElementById('root')
 );
+
+//<Landing />
+//    <Dashboard workorders={WORKORDERS} inventory={INVENTORY} />
+//        <Footer />
 

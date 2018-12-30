@@ -8,16 +8,16 @@ import '../css/grid.css';
 export default class WorkorderList extends React.Component {
     render() {
         const rows = [];
-        this.props.workorders.forEach((workorder) => {
-            rows.push(
-                <tr>
-                <td>{workorder.createdBy}</td>
-                <td>{workorder.dateCreated}</td>
-                <td>{workorder.caseNo}</td>
-                <td>{workorder.noOfItems}</td>
-                </tr>
-            )
-        });
+//        this.props.workorders.forEach((workorder) => {
+//            rows.push(
+//                <tr>
+//                <td>{workorder.createdBy}</td>
+//                <td>{workorder.dateCreated}</td>
+//                <td>{workorder.caseNo}</td>
+//                <td>{workorder.noOfItems}</td>
+//                </tr>
+//            )
+//        });
 
         return (
                 <div className="col span-1-of-2 work-orders-list">
