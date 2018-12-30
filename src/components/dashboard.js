@@ -28,7 +28,7 @@ export default class Dashboard extends React.Component {
     render() {
         return (
             <React.Fragment>
-                    <nav className="dashboard-nav" role="navigation">
+                    <nav id="home" className="dashboard-nav" role="navigation">
                         <div className="row">
                             <h1 className="logo">Keeptrack - BETA</h1>
                             <ul className="main-nav">

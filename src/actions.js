@@ -10,8 +10,6 @@ export const backToTop = () => ({
 
 //USER ACTIONS:
 //Landing Page:
-//learn more button -> scroll to next steps section
-//back to top button -> scroll to top of the page
 //signup button -> show signup form, user fills out form, user clicks submit - goes to Dashboard
 //login button -> show login form, user fills out form, user clicks submit - goes to Dashboard
 //

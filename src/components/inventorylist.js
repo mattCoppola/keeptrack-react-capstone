@@ -1,23 +1,25 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import '../css/style.css';
 import '../css/queries.css';
 import '../css/normalize.css';
 import '../css/grid.css';
 
-export default class InventoryList extends React.Component {
+export class InventoryList extends React.Component {
     render() {
         const rows = [];
-//        this.props.inventory.forEach((item) => {
-//            rows.push(
-//                <tr>
-//                <td>{item.partNumber}</td>
-//                <td>{item.cost}</td>
-//                <td>{item.price}</td>
-//                <td>{item.qty}</td>
-//                </tr>
-//            )
-//        });
+        this.props.inventory.forEach((item) => {
+            rows.push(
+                <tr>
+                <td>{item.partNumber}</td>
+                <td>{item.cost}</td>
+                <td>{item.price}</td>
+                <td>{item.qty}</td>
+                </tr>
+            )
+        });
+
         return (
             <div className="col span-1-of-2 inventory-levels">
                 <h2>Current Inventory Levels</h2>
@@ -36,3 +38,9 @@ export default class InventoryList extends React.Component {
         )
     }
 };
+
+const mapStateToProps = (state) => ({
+    inventory: state.reducer.INVENTORY
+});
+
+export default connect(mapStateToProps)(InventoryList);

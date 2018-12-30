@@ -105,5 +105,6 @@ export default (state = initialState, action) => {
     if (action.type === BACK_TO_TOP) {
         console.log('Reducer: Back to the top');
     }
+    console.log("Reducer.js ", state);
     return state;
 };
