@@ -1,7 +1,8 @@
-import { LEARN_MORE, BACK_TO_TOP } from './actions';
+import { LEARN_MORE, BACK_TO_TOP, REQUEST } from './actions';
+
 
 const initialState = {
-    hello: "Hello World",
+    user: null,
     WORKORDERS: [
         {
             createdBy: 'Matt C',
@@ -105,6 +106,5 @@ export default (state = initialState, action) => {
     if (action.type === BACK_TO_TOP) {
         console.log('Reducer: Back to the top');
     }
-    console.log("Reducer.js ", state);
     return state;
 };

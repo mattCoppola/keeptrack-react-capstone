@@ -3,9 +3,11 @@ import {reducer as formReducer } from 'redux-form';
 
 import reducer from './reducer';
 
-export default createStore(
+const store = createStore(
     combineReducers({
         form: formReducer,
         reducer: reducer
     })
 );
+
+export default store;

@@ -9,17 +9,6 @@ import '../css/grid.css';
 export class WorkorderList extends React.Component {
     render() {
         const rows = [];
-//        this.props.workorders.forEach((workorder) => {
-//            rows.push(
-//                <tr>
-//                <td>{workorder.createdBy}</td>
-//                <td>{workorder.dateCreated}</td>
-//                <td>{workorder.caseNo}</td>
-//                <td>{workorder.noOfItems}</td>
-//                </tr>
-//            )
-//        });
-        console.log(this.props.workorders);
         this.props.workorders.forEach(workorder => (
             rows.push(
                 <tr>

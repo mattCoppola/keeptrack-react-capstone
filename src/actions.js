@@ -1,3 +1,4 @@
+// DELETE LEARN_MORE & BACK_TO_TOP - THESE ARE TESTS...
 export const LEARN_MORE = 'LEARN_MORE';
 export const learnMore = () => ({
     type: LEARN_MORE
@@ -7,6 +8,17 @@ export const BACK_TO_TOP = 'BACK_TO_TOP';
 export const backToTop = () => ({
    type: BACK_TO_TOP
 });
+
+export const REQUEST = 'REQUEST';
+export const request = () => ({
+    type: REQUEST
+});
+
+///////////////////////
+// SIGNUP A NEW USER //
+///////////////////////
+
+
 
 //USER ACTIONS:
 //Landing Page:
