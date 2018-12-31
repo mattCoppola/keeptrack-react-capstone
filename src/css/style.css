@@ -40,6 +40,7 @@ fieldset {
     border: 0;
     padding: 0;
     margin-left: 0px;
+    margin-top: -25px;
 }
 
 /*---------------------*/
@@ -268,7 +269,7 @@ nav#user {
     width: 40%;
     height: 40%;
     margin: 0 auto;
-    min-height: 27rem;
+    min-height: 33rem;
     max-width: 30rem;
     border-radius: 5px;
 }
@@ -339,7 +340,7 @@ nav#user {
     width: 100%;
     border-style: none;
     padding: .5rem;
-    margin-bottom: 1rem;
+    margin-bottom: .5rem;
     border-bottom: 1px solid #cccccc;
     outline: none;
     font-size: 80%;
@@ -388,6 +389,11 @@ nav#user {
     text-align: center;
 }
 
+.form-error {
+    color: red;
+    font-size: 70%;
+    margin-top: -20px;
+}
 /*---------------------*/
 /* Dashboard Nav       */
 /*---------------------*/
