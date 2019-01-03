@@ -30,7 +30,7 @@ export class WorkorderForm extends React.Component {
             caseNumber: this.caseNumber.value,
             customerName: this.customerName.value,
             serialNumber: this.serialNumber.value,
-            partReplaced: this.partReplaced.value,
+            partReplaced: [this.partReplaced.value],
             notes: this.notes.value,
             dateCreated: Date.now()
         };
@@ -40,6 +40,14 @@ export class WorkorderForm extends React.Component {
     }
 
     render() {
+        {/* map inventory list for Select Part field in form */}
+        const parts = [];
+        this.props.parts.forEach(function(part) {
+            parts.push(
+                <option value={part.partNumber}>{part.partNumber}</option>
+            );
+        });
+
         return (
             <section className="work-order">
                 <div className="workorder-text-box">
@@ -93,9 +101,7 @@ export class WorkorderForm extends React.Component {
                                 ref={input => (this.partReplaced = input)}
                             >
                                 <option></option>
-                                <option value="motherboard">Motherboard</option>
-                                <option value="functionboard">FunctionBrd</option>
-                                <option value="screen">Screen</option>
+                                {parts}
                             </select>
 
                             <input
@@ -146,7 +152,8 @@ export class WorkorderForm extends React.Component {
 
 const mapStateToProps = (state) => ({
     loggedIn: state.reducer.user,
-    workorders: state.reducer.WORKORDERS
+    workorders: state.reducer.WORKORDERS,
+    parts: state.reducer.INVENTORY
 });
 
 

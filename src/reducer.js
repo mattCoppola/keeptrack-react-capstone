@@ -57,7 +57,7 @@ const initialState = {
             qty: 100
         },
         {
-            partNumber: 'function',
+            partNumber: 'function board',
             cost: 290,
             price: 350,
             qty: 100

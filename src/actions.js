@@ -55,11 +55,11 @@ export const submitWorkOrder = workorder => ({
 
 //USER ACTIONS:
 //Landing Page:
-//signup button -> show signup form, user fills out form, user clicks submit - goes to Dashboard
-//login button -> show login form, user fills out form, user clicks submit - goes to Dashboard
+//***DONE***signup button -> show signup form, user fills out form, user clicks submit - goes to Dashboard
+//***DONE***login button -> show login form, user fills out form, user clicks submit - goes to Dashboard
 //
 //Dashboard Page:
-//logout button -> user clicks button, user is redirected to landing page
+//***DONE***logout button -> user clicks button, user is redirected to landing page
 //create new work order -> user clicks on button, a new work order form appears
 //
 //Work Order Form:

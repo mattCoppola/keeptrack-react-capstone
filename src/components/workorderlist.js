@@ -9,17 +9,18 @@ import '../css/grid.css';
 export class WorkorderList extends React.Component {
     render() {
         const rows = [];
-        this.props.workorders.forEach(workorder => (
+        this.props.workorders.forEach(function(workorder) {
+            const numberOfPartsReplaced = workorder.partReplaced.length;
             rows.push(
                 <tr>
                     <td>{workorder.username}</td>
                     <td>{workorder.customerName}</td>
                     <td>{workorder.dateCreated}</td>
                     <td>{workorder.caseNumber}</td>
-                    <td>{workorder.partReplaced}</td>
+                    <td>{numberOfPartsReplaced}</td>
                 </tr>
             )
-        ));
+    });
 
         return (
                 <div className="col span-1-of-2 work-orders-list">
