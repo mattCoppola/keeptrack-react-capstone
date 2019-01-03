@@ -10,8 +10,6 @@ export class Signup extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-
-
     onSubmit(e) {
         e.preventDefault();
         const inputs = [this.username, this.password, this.confirmPassword]
@@ -22,11 +20,13 @@ export class Signup extends React.Component {
         };
         this.props.dispatch(signupUser(user));
         inputs.map(input => (input.value = ""));
-        console.log(this.props.user);
     }
 
 
     render() {
+        if (this.props.loggedIn) {
+            return <Redirect to="/dashboard" />;
+        }
         return (
             <header id="home" role="banner">
                 <nav role="navigation">
@@ -97,7 +97,7 @@ export class Signup extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.reducer.user
+    loggedIn: state.reducer.user
 });
 
 

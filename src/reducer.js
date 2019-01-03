@@ -1,8 +1,8 @@
-import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER } from './actions';
+import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER, LOGOUT_USER } from './actions';
 
 
 const initialState = {
-    user: 'Hello World',
+    user: null,
     WORKORDERS: [
         {
             createdBy: 'Matt C',
@@ -115,7 +115,11 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {
             user: action.user
         });
-        console.log(state.user);
+    }
+    if (action.type === LOGOUT_USER) {
+        return Object.assign({}, state, {
+            user: null
+        });
     }
     return state;
 };

@@ -24,6 +24,15 @@ export const signupUser = user => ({
     user
 });
 
+////////////////////////////////
+// LOGOUT USER FROM DASHBOARD //
+////////////////////////////////
+
+export const LOGOUT_USER = 'LOGOUT_USER';
+export const logOutUser = () => ({
+    type: LOGOUT_USER,
+})
+
 //USER ACTIONS:
 //Landing Page:
 //signup button -> show signup form, user fills out form, user clicks submit - goes to Dashboard
