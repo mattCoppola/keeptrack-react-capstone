@@ -31,7 +31,8 @@ export class WorkorderForm extends React.Component {
             customerName: this.customerName.value,
             serialNumber: this.serialNumber.value,
             partReplaced: this.partReplaced.value,
-            notes: this.notes.value
+            notes: this.notes.value,
+            dateCreated: Date.now()
         };
         this.props.dispatch(submitWorkOrder(workorder));
         inputs.map(input => (input.value = ""));
@@ -39,7 +40,6 @@ export class WorkorderForm extends React.Component {
     }
 
     render() {
-        console.log(this.props.workorders);
         return (
             <section className="work-order">
                 <div className="workorder-text-box">

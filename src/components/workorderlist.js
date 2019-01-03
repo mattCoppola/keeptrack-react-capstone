@@ -12,10 +12,11 @@ export class WorkorderList extends React.Component {
         this.props.workorders.forEach(workorder => (
             rows.push(
                 <tr>
-                    <td>{workorder.createdBy}</td>
+                    <td>{workorder.username}</td>
+                    <td>{workorder.customerName}</td>
                     <td>{workorder.dateCreated}</td>
-                    <td>{workorder.caseNo}</td>
-                    <td>{workorder.noOfItems}</td>
+                    <td>{workorder.caseNumber}</td>
+                    <td>{workorder.partReplaced}</td>
                 </tr>
             )
         ));
@@ -27,6 +28,7 @@ export class WorkorderList extends React.Component {
                         <thead>
                             <tr>
                                 <th>Created By</th>
+                                <th>Customer</th>
                                 <th>Date</th>
                                 <th>Case No.</th>
                                 <th>No. of Items</th>
