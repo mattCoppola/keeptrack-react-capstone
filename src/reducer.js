@@ -1,4 +1,4 @@
-import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER, LOGOUT_USER } from './actions';
+import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER, LOGOUT_USER, LOGIN_USER } from './actions';
 
 
 const initialState = {
@@ -112,6 +112,11 @@ export default (state = initialState, action) => {
         });
     }
     if (action.type === SIGNUP_USER) {
+        return Object.assign({}, state, {
+            user: action.user
+        });
+    }
+    if (action.type === LOGIN_USER) {
         return Object.assign({}, state, {
             user: action.user
         });

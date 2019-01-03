@@ -1,16 +1,30 @@
 import React from 'react';
-import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
-import { Link } from 'react-router-dom';
-import {required, nonEmpty, email, matchInput} from '../validators';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Input from './input';
+import { loginUser } from "../actions";
 
 export class Login extends React.Component {
-    onSubmit(values) {
-        alert(JSON.stringify(values));
+    constructor(props){
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        const inputs = [this.username, this.password]
+        const user = {
+            username: this.username.value,
+            password: this.password.value,
+        };
+        this.props.dispatch(loginUser(user));
+        inputs.map(input => (input.value = ""));
     }
 
     render() {
+        if (this.props.loggedIn) {
+            return <Redirect to="/dashboard" />;
+        }
         return (
             <header id="home" role="banner">
                 <nav role="navigation">
@@ -37,27 +51,25 @@ export class Login extends React.Component {
                             </div>
                             <div className="login-form">
                                 <form
-                                    onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+                                    onSubmit={this.onSubmit}
                                     role="form" aria-live="assertive">
                                     <fieldset>
                                         <legend>Login Form</legend>
                                         <label htmlFor="login-username">Username</label>
-                                        <Field
+                                        <input
                                             type="text"
                                             name="username"
                                             id="login-username"
                                             placeholder="Enter Username" defaultValue="demo"
-                                            component={Input}
-                                            validate={[required, nonEmpty, email]}
+                                            ref={input => (this.username = input)}
                                         />
                                         <label htmlFor="login-password">Password</label>
-                                        <Field
+                                        <input
                                             type="password"
                                             name="password"
                                             id="login-password"
                                             placeholder="Enter Password" defaultValue="demo123"
-                                            component={Input}
-                                            validate={[required, nonEmpty]}
+                                            ref={input => (this.password = input)}
                                         />
                                         <button type="submit" id="login-button">Log In</button>
                                         <br />
@@ -75,7 +87,9 @@ export class Login extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    loggedIn: state.reducer.user
+});
 
-export default reduxForm({
-    form: 'login'
-})(Login);
+
+export default connect(mapStateToProps)(Login);
