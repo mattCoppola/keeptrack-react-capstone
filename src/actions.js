@@ -18,7 +18,11 @@ export const request = () => ({
 // SIGNUP A NEW USER //
 ///////////////////////
 
-
+export const SIGNUP_USER = 'SIGNUP_USER';
+export const signupUser = user => ({
+    type: SIGNUP_USER,
+    user
+});
 
 //USER ACTIONS:
 //Landing Page:

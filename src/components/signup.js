@@ -1,14 +1,30 @@
 import React from 'react';
-import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
-import { Link } from 'react-router-dom';
-import {required, nonEmpty, email, matchInput} from '../validators';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux'
 
-import Input from './input';
+import { signupUser } from "../actions";
 
 export class Signup extends React.Component {
-    onSubmit(values) {
-        alert(JSON.stringify(values))
+    constructor(props){
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
     }
+
+
+
+    onSubmit(e) {
+        e.preventDefault();
+        const inputs = [this.username, this.password, this.confirmPassword]
+        const user = {
+            username: this.username.value,
+            password: this.password.value,
+            confirmPassword: this.confirmPassword.value
+        };
+        this.props.dispatch(signupUser(user));
+        inputs.map(input => (input.value = ""));
+        console.log(this.props.user);
+    }
+
 
     render() {
         return (
@@ -38,34 +54,31 @@ export class Signup extends React.Component {
                                 </div>
                                 <div className="signup-form">
                                 <form
-                                onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+                                onSubmit={this.onSubmit}
                                 role="form" aria-live="assertive">
                                 <fieldset>
                                     <legend>Signup Form</legend>
                                     <label htmlFor="signup-username">Username</label>
-                                    <Field
+                                    <input
                                         type="text"
                                         name="username"
                                         id="signup-username" placeholder="Enter Username" defaultValue="demo"
-                                        component={Input}
-                                        validate={[required, nonEmpty, email]}
+                                        ref={input => (this.username = input)}
                                     />
                                     <label htmlFor="signup-password">Password<span id="password-strength" /></label>
-                                    <Field
+                                    <input
                                         type="password"
                                         name="password"
                                         id="signup-password" placeholder="Enter Password" defaultValue="demo123"
                                         minLength={6}
-                                        component={Input}
-                                        validate={[required, nonEmpty]}
+                                        ref={input => (this.password = input)}
                                     />
                                     <label htmlFor="confirm-password">Confirm Password</label>
-                                    <Field
+                                    <input
                                         type="password"
-                                        name="confirm-password"
-                                        id="confirm-password" placeholder="Confirm Password" defaultValue="demo123"
-                                        component={Input}
-                                        validate={[required, nonEmpty, matchInput]}
+                                        name="confirmPassword"
+                                        id="confirmPassword" placeholder="Confirm Password" defaultValue="demo123"
+                                        ref={input => (this.confirmPassword = input)}
                                     />
                                     <button type="submit" id="signup-button">Sign Up</button>
                                     <br />
@@ -83,7 +96,9 @@ export class Signup extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => ({
+    user: state.reducer.user
+});
 
-export default reduxForm({
-    form: 'signup'
-})(Signup);
+
+export default connect(mapStateToProps)(Signup);

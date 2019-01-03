@@ -1,8 +1,8 @@
-import { LEARN_MORE, BACK_TO_TOP, REQUEST } from './actions';
+import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER } from './actions';
 
 
 const initialState = {
-    user: null,
+    user: 'Hello World',
     WORKORDERS: [
         {
             createdBy: 'Matt C',
@@ -106,5 +106,18 @@ export default (state = initialState, action) => {
     if (action.type === BACK_TO_TOP) {
         console.log('Reducer: Back to the top');
     }
+    if (action.type === REQUEST) {
+        return Object.assign({}, state, {
+            user: action.user
+        });
+    }
+    if (action.type === SIGNUP_USER) {
+        return Object.assign({}, state, {
+            user: action.user
+        });
+        console.log(state.user);
+    }
     return state;
 };
+
+
