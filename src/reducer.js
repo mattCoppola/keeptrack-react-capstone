@@ -54,49 +54,57 @@ const initialState = {
             partNumber: 'main-board',
             cost: 290,
             price: 350,
-            qty: 100
+            qty: 100,
+            id: 1
         },
         {
             partNumber: 'function board',
             cost: 290,
             price: 350,
-            qty: 100
+            qty: 100,
+            id: 2
         },
         {
             partNumber: 'button',
             cost: 290,
             price: 350,
-            qty: 100
+            qty: 100,
+            id: 3
         },
         {
             partNumber: 'digitizer',
             cost: 290,
             price: 350,
-            qty: 100
+            qty: 100,
+            id: 4
         },
         {
             partNumber: 'screen',
             cost: 290,
             price: 350,
-            qty: 100
+            qty: 100,
+            id: 5
         },
         {
             partNumber: 'backcover',
             cost: 290,
             price: 350,
-            qty: 100
+            qty: 100,
+            id: 6
         },
         {
             partNumber: 'screws',
             cost: 290,
             price: 350,
-            qty: 100
+            qty: 100,
+            id: 7
         },
         {
             partNumber: 'creditreader',
             cost: 290,
             price: 350,
-            qty: 100
+            qty: 100,
+            id: 1
         }
     ]
 };
