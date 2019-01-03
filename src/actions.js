@@ -43,6 +43,15 @@ export const logOutUser = () => ({
     type: LOGOUT_USER,
 })
 
+////////////////////////
+// SUBMIT A WORKORDER //
+////////////////////////
+
+export const SUBMIT_WORKORDER = 'SUBMIT_WORKORDER';
+export const submitWorkOrder = workorder => ({
+    type: SUBMIT_WORKORDER,
+    workorder
+});
 
 //USER ACTIONS:
 //Landing Page:

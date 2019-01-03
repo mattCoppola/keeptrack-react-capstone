@@ -1,4 +1,4 @@
-import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER, LOGOUT_USER, LOGIN_USER } from './actions';
+import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER, LOGOUT_USER, LOGIN_USER, SUBMIT_WORKORDER } from './actions';
 
 
 const initialState = {
@@ -124,6 +124,11 @@ export default (state = initialState, action) => {
     if (action.type === LOGOUT_USER) {
         return Object.assign({}, state, {
             user: null
+        });
+    }
+    if (action.type === SUBMIT_WORKORDER) {
+        return Object.assign({}, state, {
+            WORKORDERS: [...state.WORKORDERS, action.workorder]
         });
     }
     return state;

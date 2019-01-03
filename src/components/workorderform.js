@@ -1,24 +1,45 @@
 import React from 'react';
-import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
-import {required, nonEmpty, email, matchInput} from '../validators';
+import { Link, Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-import Input from './input';
+import { submitWorkOrder } from "../actions";
 
-import '../css/style.css';
-import '../css/queries.css';
-import '../css/normalize.css';
-import '../css/grid.css';
+//import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
+//import {required, nonEmpty, email, matchInput} from '../validators';
+
+//import Input from './input';
+
+//import '../css/style.css';
+//import '../css/queries.css';
+//import '../css/normalize.css';
+//import '../css/grid.css';
 
 import RepairBoard from './repairboard'
 
 export class WorkorderForm extends React.Component {
+    constructor(props){
+        super(props);
+        this.onSubmit = this.onSubmit.bind(this);
+    }
 
-
-    onSubmit(values) {
-        alert(JSON.stringify(values))
+    onSubmit(e) {
+        e.preventDefault();
+        const inputs = [this.username, this.caseNumber, this.customerName, this.serialNumber, this.partReplaced, this.notes]
+        const workorder = {
+            username: this.username.value,
+            caseNumber: this.caseNumber.value,
+            customerName: this.customerName.value,
+            serialNumber: this.serialNumber.value,
+            partReplaced: this.partReplaced.value,
+            notes: this.notes.value
+        };
+        this.props.dispatch(submitWorkOrder(workorder));
+        inputs.map(input => (input.value = ""));
+        console.log(workorder);
     }
 
     render() {
+        console.log(this.props.workorders);
         return (
             <section className="work-order">
                 <div className="workorder-text-box">
@@ -29,73 +50,64 @@ export class WorkorderForm extends React.Component {
                     <h2>Work Order Form</h2>
                     <div className="workorder-form">
                     <form
-                        onSubmit={this.props.handleSubmit(values => this.onSubmit(values))}
+                        onSubmit={this.onSubmit}
                     >
 
-                            <Field
+                            <input
                                 type="text"
                                 name="username"
                                 label="User Name"
                                 placeholder="User Name"
-                                defaultValue="demo"
-                                component={Input}
-                                validate={[required, nonEmpty]}
+                                ref={input => (this.username = input)}
                             />
 
-                            <Field
+                            <input
                                 type="text"
                                 name="caseNumber"
                                 label="Case #"
                                 placeholder="Case #"
-                                defaultValue="demo"
-                                component={Input}
-                                validate={[required, nonEmpty]}
+                                ref={input => (this.caseNumber = input)}
                             />
 
-                            <Field
+                            <input
                                 type="text"
                                 name="customerName"
                                 label="Customer"
-                                defaultValue="demo"
                                 placeholder="Customer Name"
-                                component={Input}
-                                validate={[required, nonEmpty]}
+                                ref={input => (this.customerName = input)}
                             />
 
                             <h2>Repaired Item</h2>
-                            <Field
+                            <input
                                 type="text"
                                 name="serialNumber"
                                 label="Item Serial Number"
-                                defaultValue="demo"
                                 placeholder="Item Serial Number"
-                                component={Input}
-                                validate={[required, nonEmpty]}
+                                ref={input => (this.serialNumber = input)}
                             />
                             <label>Select Part</label>
-                            <Field
+                            <select
                                 name="partReplaced"
                                 label="Select Part"
-                                component="select"
+                                type="select"
+                                ref={input => (this.partReplaced = input)}
                             >
                                 <option></option>
                                 <option value="motherboard">Motherboard</option>
                                 <option value="functionboard">FunctionBrd</option>
                                 <option value="screen">Screen</option>
-                            </Field>
+                            </select>
 
-                            <Field
+                            <input
                                 element="textarea"
                                 label="Notes"
                                 name="notes"
                                 placeholder="Notes: "
-                                defaultValue="demo"
-                                component={Input}
-                                validate={[required, nonEmpty]}
+                                ref={input => (this.notes = input)}
+
                             />
 
-
-                        <input className="save-work-order" type="submit" value="Save Work Order" />
+                        <button className="save-work-order" type="submit" value="Save Work Order">Save </button>
                         </form>
                         </div>
                 </div>
@@ -132,6 +144,10 @@ export class WorkorderForm extends React.Component {
     }
 };
 
-export default reduxForm({
-    form: 'workorder'
-})(WorkorderForm);
+const mapStateToProps = (state) => ({
+    loggedIn: state.reducer.user,
+    workorders: state.reducer.WORKORDERS
+});
+
+
+export default connect(mapStateToProps)(WorkorderForm);
