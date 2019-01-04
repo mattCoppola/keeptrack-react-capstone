@@ -63,6 +63,11 @@ export class WorkorderForm extends React.Component {
             <section className="work-order">
                 <div className="workorder-text-box">
                     <h2>Create a New Work Order</h2>
+                    <ul> Instructions:
+                        <li className="workorder-li">Click the button to open up a new workorder form.</li>
+                        <li className="workorder-li">Enter all of your information and click save</li>
+                        <li className="workorder-li">Once saved you can see your work order listed in the Completed Work Orders table above.</li>
+                    </ul>
                     <input onClick={this.toggleHidden} className="new-work-order" type="submit" value="Create Work Order" />
                 </div>
                 <div
@@ -102,6 +107,7 @@ export class WorkorderForm extends React.Component {
                             />
 
                             <h2>Repaired Item</h2>
+                            <p className="form-description">Enter the item's serial number</p>
                             <input
                                 type="text"
                                 name="serialNumber"
@@ -110,7 +116,9 @@ export class WorkorderForm extends React.Component {
                                 ref={input => (this.serialNumber = input)}
                             />
                             <label>Select Part</label>
+                            <p className="form-description">Select the part repaired</p>
                             <select
+                                className="select-part"
                                 name="partReplaced"
                                 label="Select Part"
                                 type="select"
@@ -120,6 +128,7 @@ export class WorkorderForm extends React.Component {
                                 {parts}
                             </select>
 
+                            <p className="form-description">Add additional notes about the Work Order</p>
                             <input
                                 element="textarea"
                                 label="Notes"

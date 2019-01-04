@@ -1,23 +1,34 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-import '../css/style.css';
-import '../css/queries.css';
-import '../css/normalize.css';
-import '../css/grid.css';
+import LandingPage from './landingpage';
+//import '../css/style.css';
+//import '../css/queries.css';
+//import '../css/normalize.css';
+//import '../css/grid.css';
 
 export class WorkorderList extends React.Component {
+    constructor(props){
+        super(props);
+
+    }
+
     render() {
+        function handleClick() {
+            console.log('Invoice stub...')
+        }
+
         const rows = [];
         this.props.workorders.forEach(function(workorder) {
-            const numberOfPartsReplaced = workorder.partReplaced.length;
+//            const numberOfPartsReplaced = workorder.partReplaced.length;
             rows.push(
                 <tr>
                     <td>{workorder.username}</td>
                     <td>{workorder.customerName}</td>
                     <td>{workorder.dateCreated}</td>
-                    <td>{workorder.caseNumber}</td>
-                    <td>{numberOfPartsReplaced}</td>
+                    <td><a href="#" onClick={handleClick}>{workorder.caseNumber}</a></td>
+
                 </tr>
             )
     });
@@ -32,7 +43,7 @@ export class WorkorderList extends React.Component {
                                 <th>Customer</th>
                                 <th>Date</th>
                                 <th>Case No.</th>
-                                <th>No. of Items</th>
+
                             </tr>
                         </thead>
                         <tbody>{rows}</tbody>

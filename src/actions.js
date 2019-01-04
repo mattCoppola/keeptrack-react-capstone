@@ -73,14 +73,9 @@ export const subtractInventory = partKey => ({
 //***DONE***create new work order -> user clicks on button, a new work order form appears
 //
 //Work Order Form:
-// User fills out form
-// User clicks Add Device Button -> user types in serial number, clicks add
-//    Edit button allows user to edit text
-// User clicks Add a Part button -> user selects an option, clicks add
-//    Edit button allows user to edit selection
-// Save Work Order Button -> user clicks button, data is sent to the server
+//***DONE***Save Work Order Button -> user clicks button, data is sent to the server
 //***DONE***Completed Work Orders table is updated with the Work Order
-//    Inventory List table shows updated inventory counts after the save
+//***DONE***Inventory List table shows updated inventory counts after the save
 
 //
 //Work Order Form - 3 Form Components

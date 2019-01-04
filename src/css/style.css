@@ -130,6 +130,7 @@ input[type="submit"]:active {
     border: 1px solid #e68819;
 }
 
+
 /*---------------------*/
 /* Header */
 /*---------------------*/
@@ -621,6 +622,20 @@ tr:nth-child(even) {
     list-style: none;
 }
 
+.create-work-order h2 {
+    padding-bottom: 3%;
+}
+
+.form-description {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.select-part {
+    margin-bottom: 25px;
+}
+
+
 /*
 .create-work-order input.align-left {
     float:left;
@@ -669,72 +684,14 @@ textarea {
     padding: .5em 1em;
 }
 
-/*
-.create-work-order ul{
-    padding:0;
-    margin:0;
-    list-style:none;
-}
-.create-work-order ul li{
-    display: block;
-    margin-bottom: 10px;
-    min-height: 35px;
-}
-.create-work-order ul li  .field-style{
-    box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    padding: 8px;
-    outline: none;
-    border: 1px solid #ffd5aa;
-    -webkit-transition: all 0.30s ease-in-out;
-    -moz-transition: all 0.30s ease-in-out;
-    -ms-transition: all 0.30s ease-in-out;
-    -o-transition: all 0.30s ease-in-out;
 
-}.create-work-order ul li  .field-style:focus{
-    box-shadow: 0 0 5px #ffd5aa;
-    border:1px solid #ffd5aa;
+.workorder-text-box ul {
+    font-size: 135%;
+    list-style: none;
 }
-.create-work-order ul li .field-split{
-    width: 49%;
+
+.workorder-text-box ul .workorder-li {
+    font-size: 75%;
+    padding-left: 30px;
+    line-height: 1.5em;
 }
-.create-work-order ul li .field-full{
-    width: 100%;
-}
-.create-work-order ul li input.align-left{
-    float:left;
-}
-.create-work-order ul li input.align-right{
-    float:right;
-}
-.create-work-order ul li textarea{
-    width: 100%;
-    height: 100px;
-}
-.create-work-order ul li input[type="button"],
-.create-work-order ul li input[type="submit"] {
-*/
-/*
-    -moz-box-shadow: inset 0px 1px 0px 0px #3985B1;
-    -webkit-box-shadow: inset 0px 1px 0px 0px #3985B1;
-    box-shadow: inset 0px 1px 0px 0px #3985B1;
-*/
-/*
-    background-color: #6c6c6c;
-    border: 1px solid #6c6c6c;
-    display: inline-block;
-    cursor: pointer;
-    color: #fff;
-    padding: 8px 18px;
-    text-decoration: none;
-    font: 12px Arial, Helvetica, sans-serif;
-}
-.create-work-order ul li input[type="button"]:hover,
-.create-work-order ul li input[type="submit"]:hover {
-*/
-/*    background: linear-gradient(to bottom, #2D77A2 5%, #337DA8 100%);*/
-/*
-    background-color: #e68819;
-}
-*/
