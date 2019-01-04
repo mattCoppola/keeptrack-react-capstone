@@ -53,6 +53,16 @@ export const submitWorkOrder = workorder => ({
     workorder
 });
 
+////////////////////////
+// SUBTRACT INVENTORY //
+////////////////////////
+
+export const SUBTRACT_INVENTORY = 'SUBTRACT_INVENTORY';
+export const subtractInventory = partKey => ({
+    type: SUBTRACT_INVENTORY,
+    partKey
+});
+
 //USER ACTIONS:
 //Landing Page:
 //***DONE***signup button -> show signup form, user fills out form, user clicks submit - goes to Dashboard
@@ -60,7 +70,7 @@ export const submitWorkOrder = workorder => ({
 //
 //Dashboard Page:
 //***DONE***logout button -> user clicks button, user is redirected to landing page
-//create new work order -> user clicks on button, a new work order form appears
+//***DONE***create new work order -> user clicks on button, a new work order form appears
 //
 //Work Order Form:
 // User fills out form
@@ -69,7 +79,7 @@ export const submitWorkOrder = workorder => ({
 // User clicks Add a Part button -> user selects an option, clicks add
 //    Edit button allows user to edit selection
 // Save Work Order Button -> user clicks button, data is sent to the server
-//    Completed Work Orders table is updated with the Work Order
+//***DONE***Completed Work Orders table is updated with the Work Order
 //    Inventory List table shows updated inventory counts after the save
 
 //

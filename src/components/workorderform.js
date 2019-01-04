@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { submitWorkOrder } from "../actions";
+import { submitWorkOrder, subtractInventory } from "../actions";
 
 import RepairBoard from './repairboard'
 
@@ -24,7 +24,17 @@ export class WorkorderForm extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        const inputs = [this.username, this.caseNumber, this.customerName, this.serialNumber, this.partReplaced, this.notes]
+        const inputs = [
+            this.username,
+            this.caseNumber,
+            this.customerName,
+            this.serialNumber,
+            this.partReplaced,
+            this.notes
+        ];
+
+        const partKey = parseInt(this.partReplaced.value);
+
         const workorder = {
             username: this.username.value,
             caseNumber: this.caseNumber.value,
@@ -34,9 +44,10 @@ export class WorkorderForm extends React.Component {
             notes: this.notes.value,
             dateCreated: Date.now()
         };
+
         this.props.dispatch(submitWorkOrder(workorder));
+        this.props.dispatch(subtractInventory(partKey));
         inputs.map(input => (input.value = ""));
-        console.log(workorder);
     }
 
     render() {
@@ -44,7 +55,7 @@ export class WorkorderForm extends React.Component {
         const parts = [];
         this.props.parts.forEach(function(part) {
             parts.push(
-                <option value={part.partNumber}>{part.partNumber}</option>
+                <option value={part.id}>{part.partNumber}</option>
             );
         });
 

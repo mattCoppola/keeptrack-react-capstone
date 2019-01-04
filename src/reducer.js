@@ -1,4 +1,4 @@
-import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER, LOGOUT_USER, LOGIN_USER, SUBMIT_WORKORDER } from './actions';
+import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER, LOGOUT_USER, LOGIN_USER, SUBMIT_WORKORDER, SUBTRACT_INVENTORY } from './actions';
 
 
 const initialState = {
@@ -104,7 +104,7 @@ const initialState = {
             cost: 290,
             price: 350,
             qty: 100,
-            id: 1
+            id: 8
         }
     ]
 };
@@ -140,6 +140,22 @@ export default (state = initialState, action) => {
         return Object.assign({}, state, {
             WORKORDERS: [...state.WORKORDERS, action.workorder]
         });
+    }
+    if (action.type === SUBTRACT_INVENTORY) {
+        let updatedItem = {}
+        initialState.INVENTORY.forEach(function(item) {
+           if(item.id === action.partKey){
+                updatedItem = item;
+                updatedItem.qty--
+                console.log(updatedItem);
+           }
+        });
+        return Object.assign({}, state, {
+            INVENTORY: state.INVENTORY.map(item =>
+                item.id === updatedItem.id ? updatedItem : item
+            )
+        })
+
     }
     return state;
 };
