@@ -75,6 +75,7 @@
         padding: 30px 0;
     }
 
+/*
     .signup a,
     .login a,
     .back-home a,
@@ -87,6 +88,13 @@
         top: 15px;
         right: 35px;
         display: block;
+    }
+*/
+
+    .signup a,
+    .login a {
+        position: relative;
+        top: -30px;
     }
 
     li.responsive {

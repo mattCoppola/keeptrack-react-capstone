@@ -25,11 +25,27 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+        const date = new Date();
+        const hours = date.getHours();
+        let timeOfDay;
+        if (hours < 12) {
+            timeOfDay = "morning";
+        } else if (hours >= 12 && hours < 17) {
+            timeOfDay = "afternoon";
+        } else {
+            timeOfDay = "evening";
+        }
+
+        let userName = this.props.user;
+        console.log(userName);
+
+
         return (
             <React.Fragment>
                     <nav id="home" className="dashboard-nav" role="navigation">
                         <div className="row">
-                            <h1 className="logo">Keeptrack - BETA</h1>
+                            <h1 className="logo">Keeptrack | Good {timeOfDay} {userName !== null ? this.props.user.username : 'USER'}
+                        </h1>
                             <ul className="main-nav">
                             <li onClick={this.handleClick} className="login"><Link to="/" >Logout</Link></li>
                             </ul>
