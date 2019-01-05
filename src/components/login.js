@@ -62,6 +62,9 @@ export class Login extends React.Component {
                                             id="login-username"
                                             placeholder="Enter Username" defaultValue="demo"
                                             ref={input => (this.username = input)}
+                                            required
+                                            autoFocus
+
                                         />
                                         <label htmlFor="login-password">Password</label>
                                         <input
@@ -70,6 +73,7 @@ export class Login extends React.Component {
                                             id="login-password"
                                             placeholder="Enter Password" defaultValue="demo123"
                                             ref={input => (this.password = input)}
+                                            required
                                         />
                                         <button type="submit" id="login-button">Log In</button>
                                         <br />

@@ -64,6 +64,8 @@ export class Signup extends React.Component {
                                         name="username"
                                         id="signup-username" placeholder="Enter Username" defaultValue="demo"
                                         ref={input => (this.username = input)}
+                                        required
+                                        autoFocus
                                     />
                                     <label htmlFor="signup-password">Password<span id="password-strength" /></label>
                                     <input
@@ -72,6 +74,7 @@ export class Signup extends React.Component {
                                         id="signup-password" placeholder="Enter Password" defaultValue="demo123"
                                         minLength={6}
                                         ref={input => (this.password = input)}
+                                        required
                                     />
                                     <label htmlFor="confirm-password">Confirm Password</label>
                                     <input
@@ -79,6 +82,7 @@ export class Signup extends React.Component {
                                         name="confirmPassword"
                                         id="confirmPassword" placeholder="Confirm Password" defaultValue="demo123"
                                         ref={input => (this.confirmPassword = input)}
+                                        required
                                     />
                                     <button type="submit" id="signup-button">Sign Up</button>
                                     <br />
