@@ -1,4 +1,5 @@
-import { API_ORIGIN } from "../config";
+import jwtDecode from "jwt-decode";
+import { API_ORIGIN } from "./config";
 
 // DELETE LEARN_MORE & BACK_TO_TOP - THESE ARE TESTS...
 export const LEARN_MORE = 'LEARN_MORE';
@@ -65,22 +66,55 @@ export const subtractInventory = partKey => ({
     partKey
 });
 
-//USER ACTIONS:
-//Landing Page:
-//***DONE***signup button -> show signup form, user fills out form, user clicks submit - goes to Dashboard
-//***DONE***login button -> show login form, user fills out form, user clicks submit - goes to Dashboard
-//
-//Dashboard Page:
-//***DONE***logout button -> user clicks button, user is redirected to landing page
-//***DONE***create new work order -> user clicks on button, a new work order form appears
-//
-//Work Order Form:
-//***DONE***Save Work Order Button -> user clicks button, data is sent to the server
-//***DONE***Completed Work Orders table is updated with the Work Order
-//***DONE***Inventory List table shows updated inventory counts after the save
+export const AUTH_REQUEST = 'AUTH_REQUEST';
+export const authRequest = () => ({
+  type: AUTH_REQUEST
+});
 
-//
-//Work Order Form - 3 Form Components
-//    1.  workorderform.js
-//    2.  additemform.js
-//    3.  addpartsform.js
+export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
+export const setAuthToken = authToken => ({
+  type: SET_AUTH_TOKEN,
+  authToken
+});
+
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const authSuccess = currentUser => ({
+  type: AUTH_SUCCESS,
+  currentUser
+});
+
+export const ERROR = 'ERROR';
+export const fetchErr = err => ({
+  type: ERROR,
+  err
+});
+
+
+const storeAuthInfo = (authToken, dispatch) => {
+  const decodedToken = jwtDecode(authToken);
+  dispatch(setAuthToken(authToken));
+  dispatch(authSuccess(decodedToken));
+};
+
+
+export const login = user => dispatch => {
+  dispatch(request());
+  fetch(`${API_ORIGIN}/api/auth/login`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json"
+    },
+    mode: 'no-cors',
+    body: JSON.stringify(user)
+  })
+    .then(res => {
+      if (!res.ok) {
+        return Promise.reject(res.statusText);
+      }
+      return res.json();
+    })
+    .then(authToken => storeAuthInfo(authToken.token, dispatch))
+    .catch(err => {
+      dispatch(fetchErr(err));
+    });
+};

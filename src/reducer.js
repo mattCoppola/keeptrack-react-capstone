@@ -1,8 +1,10 @@
-import { LEARN_MORE, BACK_TO_TOP, REQUEST, SIGNUP_USER, LOGOUT_USER, LOGIN_USER, SUBMIT_WORKORDER, SUBTRACT_INVENTORY } from './actions';
-
+import * as actions from "./actions";
 
 const initialState = {
+    authToken: "",
+    error: null,
     user: null,
+    loading: false,
     WORKORDERS: [
         {
             username: 'Matt',
@@ -110,38 +112,44 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-    if (action.type === LEARN_MORE) {
+    if (action.type === actions.LEARN_MORE) {
         console.log('Reducer: Learning more...');
     }
-    if (action.type === BACK_TO_TOP) {
+    if (action.type === actions.BACK_TO_TOP) {
         console.log('Reducer: Back to the top');
     }
-    if (action.type === REQUEST) {
+    if (action.type === actions.ERROR) {
+        return Object.assign({}, state, {
+          error: action.err,
+          loading: false
+        });
+    }
+    if (action.type === actions.REQUEST) {
         return Object.assign({}, state, {
             user: action.user
         });
     }
-    if (action.type === SIGNUP_USER) {
+    if (action.type === actions.SIGNUP_USER) {
         return Object.assign({}, state, {
             user: action.user
         });
     }
-    if (action.type === LOGIN_USER) {
+    if (action.type === actions.LOGIN_USER) {
         return Object.assign({}, state, {
             user: action.user
         });
     }
-    if (action.type === LOGOUT_USER) {
+    if (action.type === actions.LOGOUT_USER) {
         return Object.assign({}, state, {
             user: null
         });
     }
-    if (action.type === SUBMIT_WORKORDER) {
+    if (action.type === actions.SUBMIT_WORKORDER) {
         return Object.assign({}, state, {
             WORKORDERS: [...state.WORKORDERS, action.workorder]
         });
     }
-    if (action.type === SUBTRACT_INVENTORY) {
+    if (action.type === actions.SUBTRACT_INVENTORY) {
         let updatedItem = {}
         initialState.INVENTORY.forEach(function(item) {
            if(item.id === action.partKey){

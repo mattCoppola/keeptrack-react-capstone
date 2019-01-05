@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { loginUser } from "../actions";
+import { login } from "../actions";
 
 export class Login extends React.Component {
     constructor(props){
@@ -17,7 +17,7 @@ export class Login extends React.Component {
             username: this.username.value,
             password: this.password.value,
         };
-        this.props.dispatch(loginUser(user));
+        this.props.dispatch(login(user));
         inputs.map(input => (input.value = ""));
     }
 
