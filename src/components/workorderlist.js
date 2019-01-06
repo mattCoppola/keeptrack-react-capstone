@@ -8,16 +8,23 @@ import LandingPage from './landingpage';
 //import '../css/normalize.css';
 //import '../css/grid.css';
 
+import { retrieveWorkOrders } from "../actions";
+
 export class WorkorderList extends React.Component {
     constructor(props){
         super(props);
-
     }
+//    componentDidMount() {
+//        this.props.dispatch(retrieveWorkOrders());
+//    }
+
+
 
     render() {
         function handleClick() {
             console.log('Invoice stub...')
         }
+        console.log(this.props.workorders);
 
         const rows = [];
         this.props.workorders.forEach(function(workorder) {
@@ -54,7 +61,8 @@ export class WorkorderList extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
-    workorders: state.reducer.WORKORDERS
+    workorders: state.reducer.WORKORDERS,
+    results: state.reducer.resultsOutput.resultsOutput
 });
 
 export default connect(mapStateToProps)(WorkorderList);

@@ -56,6 +56,12 @@ export const SUBMIT_WORKORDER = 'SUBMIT_WORKORDER';
 //    workorder
 //});
 
+export const RETRIEVE_WORKORDERS = 'RETRIEVE_WORKORDERS';
+export const displayWorkOrders = results => ({
+    type: RETRIEVE_WORKORDERS,
+    results
+});
+
 ////////////////////////
 // SUBTRACT INVENTORY //
 ////////////////////////
@@ -167,4 +173,21 @@ export const submitWorkOrder = workorder => dispatch => {
         .catch(err => {
         dispatch(fetchErr(err));
     });
+};
+
+export const retrieveWorkOrders = workorder => dispatch => {
+    dispatch(request());
+    fetch(`${API_ORIGIN}/api/auth/dashboard`, {
+        mode: "cors",
+        headers: {
+            "content-type": "application/json"
+        }
+    })
+        .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
+        .then(res => dispatch(displayWorkOrders(res)))
 };

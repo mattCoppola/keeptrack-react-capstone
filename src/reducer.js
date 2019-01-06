@@ -7,6 +7,7 @@ const initialState = {
     userID: "",
     loading: false,
     loggedIn: false,
+    resultsOutput: [],
     WORKORDERS: [
         {
             username: 'Matt',
@@ -131,6 +132,11 @@ export default (state = initialState, action) => {
     if (action.type === actions.SUBMIT_WORKORDER) {
         return Object.assign({}, state, {
             WORKORDERS: [...state.WORKORDERS, action.workorder]
+        });
+    }
+    if (action.type === actions.RETRIEVE_WORKORDERS) {
+        return Object.assign({}, state, {
+            resultsOutput: action.results
         });
     }
     if (action.type === actions.SUBTRACT_INVENTORY) {
