@@ -20,12 +20,12 @@ export const request = () => ({
 ///////////////////////
 // SIGNUP A NEW USER //
 ///////////////////////
-
-export const SIGNUP_USER = 'SIGNUP_USER';
-export const signupUser = user => ({
-    type: SIGNUP_USER,
-    user
-});
+//
+//export const SIGNUP_USER = 'SIGNUP_USER';
+//export const signupUser = user => ({
+//    type: SIGNUP_USER,
+//    user
+//});
 
 //////////////////
 // LOGIN A USER //
@@ -91,20 +91,23 @@ export const fetchErr = err => ({
 
 
 const storeAuthInfo = (authToken, dispatch) => {
-  const decodedToken = jwtDecode(authToken);
-  dispatch(setAuthToken(authToken));
-  dispatch(authSuccess(decodedToken));
+    const decodedToken = jwtDecode(authToken);
+    console.log(decodedToken);
+    dispatch(setAuthToken(authToken));
+    dispatch(authSuccess(decodedToken));
 };
 
 
 export const login = user => dispatch => {
   dispatch(request());
+    console.log(user);
   fetch(`${API_ORIGIN}/api/auth/login`, {
     method: "POST",
     headers: {
-      "content-type": "application/json"
+      "content-type": "application/json",
+      "Access-Control-Allow-Origin": "*"
     },
-    mode: 'no-cors',
+//    mode: 'no-cors',
     body: JSON.stringify(user)
   })
     .then(res => {
@@ -113,8 +116,33 @@ export const login = user => dispatch => {
       }
       return res.json();
     })
-    .then(authToken => storeAuthInfo(authToken.token, dispatch))
+//    .then(authToken => console.log(authToken.authToken))
+    .then(authToken => storeAuthInfo(authToken.authToken, dispatch))
     .catch(err => {
       dispatch(fetchErr(err));
+    });
+};
+
+export const signupUser = user => dispatch => {
+    dispatch(request());
+    console.log(user);
+    let newUser = user;
+    fetch(`${API_ORIGIN}/api/users`, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+        .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
+        .then(dispatch(login(newUser)))
+//        .then(authToken => storeAuthInfo(authToken.authToken, dispatch))
+        .catch(err => {
+        dispatch(fetchErr(err));
     });
 };

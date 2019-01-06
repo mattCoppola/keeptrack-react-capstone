@@ -22,6 +22,7 @@ export class Login extends React.Component {
     }
 
     render() {
+        console.log(this.props.loggedIn);
         if (this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
         }
@@ -92,7 +93,7 @@ export class Login extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    loggedIn: state.reducer.user
+    loggedIn: state.reducer.loggedIn
 });
 
 

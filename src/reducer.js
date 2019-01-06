@@ -4,7 +4,9 @@ const initialState = {
     authToken: "",
     error: null,
     user: null,
+    userID: "",
     loading: false,
+    loggedIn: false,
     WORKORDERS: [
         {
             username: 'Matt',
@@ -14,42 +16,6 @@ const initialState = {
             partReplaced: ['screen', 'motherboard'],
             notes: 'fixed the loose cables',
         }
-//        {
-//            createdBy: 'Johnny',
-//            dateCreated: '12/27/2018',
-//            caseNo: 'SC1234567',
-//            noOfItems: 4
-//        },
-//        {
-//            createdBy: 'Andy',
-//            dateCreated: '12/28/2018',
-//            caseNo: 'SC1234567',
-//            noOfItems: 4
-//        },
-//        {
-//            createdBy: 'Mark',
-//            dateCreated: '12/29/2018',
-//            caseNo: 'SC1234567',
-//            noOfItems: 4
-//        },
-//        {
-//            createdBy: 'Mark',
-//            dateCreated: '12/30/2018',
-//            caseNo: 'SC1234567',
-//            noOfItems: 4
-//        },
-//        {
-//            createdBy: 'Matt C',
-//            dateCreated: '12/31/2018',
-//            caseNo: 'SC1234567',
-//            noOfItems: 4
-//        },
-//        {
-//            createdBy: 'Matt C',
-//            dateCreated: '01/01/2019',
-//            caseNo: 'SC1234567',
-//            noOfItems: 4
-//        }
     ],
     INVENTORY: [
         {
@@ -125,18 +91,36 @@ export default (state = initialState, action) => {
         });
     }
     if (action.type === actions.REQUEST) {
+        console.log("Requesting....", action.user)
         return Object.assign({}, state, {
             user: action.user
         });
     }
-    if (action.type === actions.SIGNUP_USER) {
-        return Object.assign({}, state, {
-            user: action.user
-        });
-    }
+//    if (action.type === actions.SIGNUP_USER) {
+//        return Object.assign({}, state, {
+//            user: action.user
+//        });
+//    }
     if (action.type === actions.LOGIN_USER) {
         return Object.assign({}, state, {
             user: action.user
+        });
+    }
+    if (action.type === actions.SET_AUTH_TOKEN) {
+        return Object.assign({}, state, {
+            authToken: action.authToken,
+            loading: false
+        });
+    }
+    if (action.type === actions.AUTH_SUCCESS) {
+        const username = action.currentUser.user.username;
+        const id = action.currentUser.user._id;
+        console.log(username, id);
+        return Object.assign({}, state, {
+            loading: false,
+            user: username,
+            userID: id,
+            loggedIn: true
         });
     }
     if (action.type === actions.LOGOUT_USER) {
