@@ -61,7 +61,8 @@ export class Dashboard extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
-    user: state.reducer.user
+    user: state.reducer.user,
+    authToken: state.reducer.authToken
 });
 
 export default connect(mapStateToProps)(Dashboard);

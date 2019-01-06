@@ -51,10 +51,10 @@ export const logOutUser = () => ({
 ////////////////////////
 
 export const SUBMIT_WORKORDER = 'SUBMIT_WORKORDER';
-export const submitWorkOrder = workorder => ({
-    type: SUBMIT_WORKORDER,
-    workorder
-});
+//export const submitWorkOrder = workorder => ({
+//    type: SUBMIT_WORKORDER,
+//    workorder
+//});
 
 ////////////////////////
 // SUBTRACT INVENTORY //
@@ -142,6 +142,28 @@ export const signupUser = user => dispatch => {
     })
         .then(dispatch(login(newUser)))
 //        .then(authToken => storeAuthInfo(authToken.authToken, dispatch))
+        .catch(err => {
+        dispatch(fetchErr(err));
+    });
+};
+
+export const submitWorkOrder = workorder => dispatch => {
+    dispatch(request());
+    console.log(workorder);
+    fetch(`${API_ORIGIN}/api/auth/dashboard`, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(workorder)
+    })
+        .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
+        .then(success => console.log(success))
         .catch(err => {
         dispatch(fetchErr(err));
     });
