@@ -6,8 +6,21 @@ import '../css/queries.css';
 import '../css/normalize.css';
 import '../css/grid.css';
 
+import { retrieveInventory } from "../actions";
+
 export class InventoryList extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+   componentDidMount() {
+       this.props.dispatch(retrieveInventory());
+   }
+
     render() {
+
+        console.log(this.props.inventory);
+
         const rows = [];
         this.props.inventory.forEach((item) => {
             rows.push(
@@ -40,7 +53,7 @@ export class InventoryList extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
-    inventory: state.reducer.INVENTORY
+    inventory: state.reducer.inventory
 });
 
 export default connect(mapStateToProps)(InventoryList);

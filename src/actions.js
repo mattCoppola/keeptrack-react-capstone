@@ -62,6 +62,12 @@ export const displayWorkOrders = results => ({
     results
 });
 
+export const RETRIEVE_INVENTORY = 'RETRIEVE_INVENTORY';
+export const displayInventory = results => ({
+    type: RETRIEVE_INVENTORY,
+    results
+});
+
 ////////////////////////
 // SUBTRACT INVENTORY //
 ////////////////////////
@@ -196,4 +202,20 @@ export const deleteWorkOrder = (id) => dispatch =>  {
     dispatch(request)
     //api fetch call to delete
     console.log('Deleting ', id)
+};
+
+export const retrieveInventory = inventory => dispatch => {
+    fetch(`${API_ORIGIN}/api/auth/inventory`, {
+        mode: "cors",
+        headers: {
+            "content-type": "application/json"
+        }
+    })
+        .then(res => {
+            if(!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(res => dispatch(displayInventory(res)))
 };

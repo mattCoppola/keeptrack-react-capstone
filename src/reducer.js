@@ -8,6 +8,7 @@ const initialState = {
     loading: false,
     loggedIn: false,
     workorders: [],
+    inventory:[],
     INVENTORY: [
         {
             partNumber: 'main-board',
@@ -127,6 +128,11 @@ export default (state = initialState, action) => {
     if (action.type === actions.RETRIEVE_WORKORDERS) {
         return Object.assign({}, state, {
             workorders: action.results.resultsOutput
+        });
+    }
+    if (action.type === actions.RETRIEVE_INVENTORY) {
+        return Object.assign({}, state, {
+            inventory: action.results.inventoryItems
         });
     }
     if (action.type === actions.SUBTRACT_INVENTORY) {
