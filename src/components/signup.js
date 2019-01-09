@@ -10,16 +10,38 @@ export class Signup extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
+// Validate input
+    // if (password !== confirmPW) {
+    //     alert('Passwords must match!');
+    // } else if (username == "") {
+    //     alert('Please input a user name.');
+    // } else if (password == "") {
+    //     alert('Please input a password.');
+    // } else {
+    //     const newUserObject = {
+    //         username: username,
+    //         password: password
+    //     };
+
+
     onSubmit(e) {
         e.preventDefault();
         const inputs = [this.username, this.password, this.confirmPassword]
-        const user = {
-            username: this.username.value,
-            password: this.password.value,
-            confirmPassword: this.confirmPassword.value
-        };
-        this.props.dispatch(signupUser(user));
-        inputs.map(input => (input.value = ""));
+        if (this.password.value !== this.confirmPassword.value) {
+            alert('Passwords must match!');
+        } else if (this.username.value == "") {
+            alert('Please input a user name.');
+        } else if (this.password.value == "") {
+            alert('Please input a password.');
+        } else {
+            const user = {
+                username: this.username.value,
+                password: this.password.value,
+                confirmPassword: this.confirmPassword.value
+            };
+            this.props.dispatch(signupUser(user));
+            inputs.map(input => (input.value = ""));
+        }
     }
 
 
@@ -64,7 +86,6 @@ export class Signup extends React.Component {
                                         name="username"
                                         id="signup-username" placeholder="Enter Username" defaultValue="demo"
                                         ref={input => (this.username = input)}
-                                        required
                                         autoFocus
                                     />
                                     <label htmlFor="signup-password">Password<span id="password-strength" /></label>
@@ -74,7 +95,7 @@ export class Signup extends React.Component {
                                         id="signup-password" placeholder="Enter Password" defaultValue="demo123"
                                         minLength={6}
                                         ref={input => (this.password = input)}
-                                        required
+                                        
                                     />
                                     <label htmlFor="confirm-password">Confirm Password</label>
                                     <input
@@ -82,7 +103,6 @@ export class Signup extends React.Component {
                                         name="confirmPassword"
                                         id="confirmPassword" placeholder="Confirm Password" defaultValue="demo123"
                                         ref={input => (this.confirmPassword = input)}
-                                        required
                                     />
                                     <button type="submit" id="signup-button">Sign Up</button>
                                     <br />

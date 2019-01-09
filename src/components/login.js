@@ -13,12 +13,18 @@ export class Login extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         const inputs = [this.username, this.password]
-        const user = {
-            username: this.username.value,
-            password: this.password.value,
-        };
-        this.props.dispatch(login(user));
-        inputs.map(input => (input.value = ""));
+        if (this.username.value == "") {
+            alert('Please input a user name.');
+        } else if (this.password.value == "") {
+            alert('Please input a password.');
+        } else {
+            const user = {
+                username: this.username.value,
+                password: this.password.value,
+            };
+            this.props.dispatch(login(user));
+            inputs.map(input => (input.value = ""));
+        }
     }
 
     render() {
@@ -63,7 +69,6 @@ export class Login extends React.Component {
                                             id="login-username"
                                             placeholder="Enter Username" defaultValue="demo"
                                             ref={input => (this.username = input)}
-                                            required
                                             autoFocus
 
                                         />
@@ -74,7 +79,6 @@ export class Login extends React.Component {
                                             id="login-password"
                                             placeholder="Enter Password" defaultValue="demo123"
                                             ref={input => (this.password = input)}
-                                            required
                                         />
                                         <button type="submit" id="login-button">Log In</button>
                                         <br />
