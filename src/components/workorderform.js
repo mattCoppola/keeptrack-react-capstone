@@ -150,7 +150,7 @@ export class WorkorderForm extends React.Component {
 const mapStateToProps = (state) => ({
     loggedIn: state.reducer.user,
     workorders: state.reducer.WORKORDERS,
-    parts: state.reducer.INVENTORY,
+    parts: state.reducer.inventory,
     authToken: state.reducer.authToken
 });
 

@@ -21,18 +21,12 @@ export class Dashboard extends React.Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    // componentDidMount() {
-    //    this.props.dispatch(retrieveWorkOrders());
-    // }
-
     handleClick(e) {
         e.preventDefault();
         this.props.dispatch(logOutUser());
     }
 
     render() {
-        console.log(this.props.results);
-        
         const date = new Date();
         const hours = date.getHours();
         let timeOfDay;
@@ -60,7 +54,7 @@ export class Dashboard extends React.Component {
 
                 <div className="row dashboard">
                     <WorkorderList />
-                    <InventoryList inventory = {this.props.inventory} />
+                    <InventoryList />
                 </div>
                 <WorkorderForm />
             </React.Fragment>
@@ -70,9 +64,7 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = (state) => ({
     user: state.reducer.user,
-    authToken: state.reducer.authToken,
-    workorders: state.reducer.resultsOutput,
-    results: state.reducer.resultsOutput
+    authToken: state.reducer.authToken
 });
 
 export default connect(mapStateToProps)(Dashboard);

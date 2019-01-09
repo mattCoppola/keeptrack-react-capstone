@@ -9,64 +9,6 @@ const initialState = {
     loggedIn: false,
     workorders: [],
     inventory:[],
-    INVENTORY: [
-        {
-            partNumber: 'main-board',
-            cost: 290,
-            price: 350,
-            qty: 100,
-            id: 1
-        },
-        {
-            partNumber: 'function board',
-            cost: 290,
-            price: 350,
-            qty: 100,
-            id: 2
-        },
-        {
-            partNumber: 'button',
-            cost: 290,
-            price: 350,
-            qty: 100,
-            id: 3
-        },
-        {
-            partNumber: 'digitizer',
-            cost: 290,
-            price: 350,
-            qty: 100,
-            id: 4
-        },
-        {
-            partNumber: 'screen',
-            cost: 290,
-            price: 350,
-            qty: 100,
-            id: 5
-        },
-        {
-            partNumber: 'backcover',
-            cost: 290,
-            price: 350,
-            qty: 100,
-            id: 6
-        },
-        {
-            partNumber: 'screws',
-            cost: 290,
-            price: 350,
-            qty: 100,
-            id: 7
-        },
-        {
-            partNumber: 'creditreader',
-            cost: 290,
-            price: 350,
-            qty: 100,
-            id: 8
-        }
-    ]
 };
 
 export default (state = initialState, action) => {
@@ -137,7 +79,7 @@ export default (state = initialState, action) => {
     }
     if (action.type === actions.SUBTRACT_INVENTORY) {
         let updatedItem = {}
-        initialState.INVENTORY.forEach(function(item) {
+        initialState.inventory.forEach(function(item) {
            if(item.id === action.partKey){
                 updatedItem = item;
                 updatedItem.qty--
@@ -145,7 +87,7 @@ export default (state = initialState, action) => {
            }
         });
         return Object.assign({}, state, {
-            INVENTORY: state.INVENTORY.map(item =>
+            INVENTORY: state.inventory.map(item =>
                 item.id === updatedItem.id ? updatedItem : item
             )
         })
