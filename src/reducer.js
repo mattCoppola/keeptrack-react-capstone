@@ -7,17 +7,7 @@ const initialState = {
     userID: "",
     loading: false,
     loggedIn: false,
-    resultsOutput: [],
-    WORKORDERS: [
-        {
-            username: 'Matt',
-            caseNumber: 'SC3842011',
-            customerName: 'TopGolf',
-            serialNumber: 'SC7834011',
-            partReplaced: ['screen', 'motherboard'],
-            notes: 'fixed the loose cables',
-        }
-    ],
+    workorders: [],
     INVENTORY: [
         {
             partNumber: 'main-board',
@@ -136,7 +126,7 @@ export default (state = initialState, action) => {
     }
     if (action.type === actions.RETRIEVE_WORKORDERS) {
         return Object.assign({}, state, {
-            resultsOutput: action.results
+            workorders: action.results.resultsOutput
         });
     }
     if (action.type === actions.SUBTRACT_INVENTORY) {

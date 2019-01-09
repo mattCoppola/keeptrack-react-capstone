@@ -2,40 +2,42 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
-import LandingPage from './landingpage';
-//import '../css/style.css';
-//import '../css/queries.css';
-//import '../css/normalize.css';
-//import '../css/grid.css';
-
-import { retrieveWorkOrders } from "../actions";
+import { retrieveWorkOrders, deleteWorkOrder } from "../actions";
 
 export class WorkorderList extends React.Component {
     constructor(props){
         super(props);
     }
-//    componentDidMount() {
-//        this.props.dispatch(retrieveWorkOrders());
-//    }
 
-
+   componentDidMount() {
+       this.props.dispatch(retrieveWorkOrders());
+   }
 
     render() {
+   
         function handleClick() {
-            console.log('Invoice stub...')
+            alert('Invoice PDF stub...for future version of this application')
         }
-        console.log(this.props.workorders);
+
+        console.log(this.props.results);
 
         const rows = [];
-        this.props.workorders.forEach(function(workorder) {
+        this.props.results.forEach(function(workorder, index) {
 //            const numberOfPartsReplaced = workorder.partReplaced.length;
             rows.push(
-                <tr>
+                <tr key={index}>
                     <td>{workorder.username}</td>
                     <td>{workorder.customerName}</td>
-                    <td>{workorder.dateCreated}</td>
+                    <td>{workorder.created}</td>
                     <td><a href="#" onClick={handleClick}>{workorder.caseNumber}</a></td>
-
+                    <td>
+                        <button 
+                            type="button"
+                            id={workorder.id}
+                        >
+                        Delete
+                        </button>
+                    </td>
                 </tr>
             )
     });
@@ -50,7 +52,7 @@ export class WorkorderList extends React.Component {
                                 <th>Customer</th>
                                 <th>Date</th>
                                 <th>Case No.</th>
-
+                                <th className="delete-th">Delete</th>
                             </tr>
                         </thead>
                         <tbody>{rows}</tbody>
@@ -61,8 +63,7 @@ export class WorkorderList extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
-    workorders: state.reducer.WORKORDERS,
-    results: state.reducer.resultsOutput.resultsOutput
+     results: state.reducer.workorders
 });
 
 export default connect(mapStateToProps)(WorkorderList);

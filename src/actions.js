@@ -176,7 +176,7 @@ export const submitWorkOrder = workorder => dispatch => {
 };
 
 export const retrieveWorkOrders = workorder => dispatch => {
-    dispatch(request());
+    // dispatch(request());
     fetch(`${API_ORIGIN}/api/auth/dashboard`, {
         mode: "cors",
         headers: {
@@ -190,4 +190,10 @@ export const retrieveWorkOrders = workorder => dispatch => {
         return res.json();
     })
         .then(res => dispatch(displayWorkOrders(res)))
+};
+
+export const deleteWorkOrder = (id) => dispatch =>  {
+    dispatch(request)
+    //api fetch call to delete
+    console.log('Deleting ', id)
 };

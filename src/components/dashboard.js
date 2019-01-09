@@ -13,11 +13,17 @@ import '../css/queries.css';
 import '../css/normalize.css';
 import '../css/grid.css';
 
+import { retrieveWorkOrders } from "../actions";
+
 export class Dashboard extends React.Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
     }
+
+    // componentDidMount() {
+    //    this.props.dispatch(retrieveWorkOrders());
+    // }
 
     handleClick(e) {
         e.preventDefault();
@@ -25,6 +31,8 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+        console.log(this.props.results);
+        
         const date = new Date();
         const hours = date.getHours();
         let timeOfDay;
@@ -51,7 +59,7 @@ export class Dashboard extends React.Component {
                     </nav>
 
                 <div className="row dashboard">
-                    <WorkorderList workorders = {this.props.workorders} />
+                    <WorkorderList />
                     <InventoryList inventory = {this.props.inventory} />
                 </div>
                 <WorkorderForm />
@@ -62,7 +70,9 @@ export class Dashboard extends React.Component {
 
 const mapStateToProps = (state) => ({
     user: state.reducer.user,
-    authToken: state.reducer.authToken
+    authToken: state.reducer.authToken,
+    workorders: state.reducer.resultsOutput,
+    results: state.reducer.resultsOutput
 });
 
 export default connect(mapStateToProps)(Dashboard);
