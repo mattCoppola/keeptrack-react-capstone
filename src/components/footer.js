@@ -7,7 +7,7 @@ export class Footer extends React.Component {
     render() {
         return (
             <footer role="contentinfo">
-                <a onClick={() => this.props.dispatch(backToTop())} className="btn btn-full scroll" href="#home">Back to top</a>
+                <a onClick={() => this.props.backToTop} className="btn btn-full scroll" href="#home">Back to top</a>
                 <div className="row">
                     <a className="aboutUs" href="#">About Us</a>
                     <ul className="social-links">
@@ -27,4 +27,4 @@ const mapStateToProps = (state) => ({
     hello: state.hello
 })
 
-export default connect(mapStateToProps)(Footer);
+export default connect(mapStateToProps, {backToTop})(Footer);

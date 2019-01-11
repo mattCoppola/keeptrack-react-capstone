@@ -1,5 +1,5 @@
 import jwtDecode from "jwt-decode";
-import { API_ORIGIN } from "./config";
+import { API_ORIGIN } from "../config";
 
 // DELETE LEARN_MORE & BACK_TO_TOP - THESE ARE TESTS...
 export const LEARN_MORE = 'LEARN_MORE';
@@ -175,7 +175,7 @@ export const submitWorkOrder = workorder => dispatch => {
         }
         return res.json();
     })
-        .then(success => console.log(success))
+        .then(res => dispatch(retrieveWorkOrders(res)))
         .catch(err => {
         dispatch(fetchErr(err));
     });

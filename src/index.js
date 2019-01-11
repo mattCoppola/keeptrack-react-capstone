@@ -12,11 +12,11 @@ import './css/grid.css';
 //IMPORT APP FOR ROUTER / ROUTES
 import App from './app';
 
-import Landing from './components/landingpage';
-import Footer from './components/footer';
-import Dashboard from './components/dashboard';
-import Signup from './components/signup';
-import Login from './components/login';
+// import Landing from './components/landingpage';
+// import Footer from './components/footer';
+// import Dashboard from './components/dashboard';
+// import Signup from './components/signup';
+// import Login from './components/login';
 
 ReactDOM.render(
     <Provider store={store}>
@@ -30,4 +30,3 @@ ReactDOM.render(
 //<Landing />
 //    <Dashboard workorders={WORKORDERS} inventory={INVENTORY} />
 //        <Footer />
-

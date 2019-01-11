@@ -1,4 +1,4 @@
-import * as actions from "./actions";
+import * as actions from "../actions";
 
 const initialState = {
     authToken: "",
@@ -27,6 +27,8 @@ export default (state = initialState, action) => {
     if (action.type === actions.REQUEST) {
         console.log("Requesting....", action.user)
         return Object.assign({}, state, {
+            error: null,
+            loading: true,
             user: action.user
         });
     }
@@ -59,7 +61,10 @@ export default (state = initialState, action) => {
     }
     if (action.type === actions.LOGOUT_USER) {
         return Object.assign({}, state, {
-            user: null
+            authToken: '',
+            user: null,
+            userID: '',
+            loggedIn: false
         });
     }
     if (action.type === actions.SUBMIT_WORKORDER) {
@@ -95,5 +100,3 @@ export default (state = initialState, action) => {
     }
     return state;
 };
-
-

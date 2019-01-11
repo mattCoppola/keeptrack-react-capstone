@@ -36,7 +36,7 @@ export class Landing extends React.Component {
                         <div className="hero-blur">
                             <h1>Repair Order and Inventory Management software that's easy to use</h1>
                         </div>
-                        <a onClick={() => this.props.dispatch(learnMore())} className="btn btn-full scroll" href="#next-steps">Learn More</a>
+                        <a onClick={() => this.props.learnMore} className="btn btn-full scroll" href="#next-steps">Learn More</a>
                     </div>
                 </header>
                 <section id="next-steps" className="next-steps">
@@ -68,4 +68,4 @@ const mapStateToProps = (state) => ({
     hello: state.hello
 })
 
-export default connect(mapStateToProps)(Landing);
+export default connect(mapStateToProps, {learnMore})(Landing);

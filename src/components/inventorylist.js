@@ -9,9 +9,9 @@ import '../css/grid.css';
 import { retrieveInventory } from "../actions";
 
 export class InventoryList extends React.Component {
-    constructor(props){
-        super(props);
-    }
+    // constructor(props){
+    //     super(props);
+    // }
 
    componentDidMount() {
        this.props.dispatch(retrieveInventory());

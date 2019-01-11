@@ -10,28 +10,15 @@ export class Signup extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-// Validate input
-    // if (password !== confirmPW) {
-    //     alert('Passwords must match!');
-    // } else if (username == "") {
-    //     alert('Please input a user name.');
-    // } else if (password == "") {
-    //     alert('Please input a password.');
-    // } else {
-    //     const newUserObject = {
-    //         username: username,
-    //         password: password
-    //     };
-
-
     onSubmit(e) {
         e.preventDefault();
         const inputs = [this.username, this.password, this.confirmPassword]
+        // Validate User Input
         if (this.password.value !== this.confirmPassword.value) {
             alert('Passwords must match!');
-        } else if (this.username.value == "") {
+        } else if (this.username.value === "") {
             alert('Please input a user name.');
-        } else if (this.password.value == "") {
+        } else if (this.password.value === "") {
             alert('Please input a password.');
         } else {
             const user = {
@@ -41,11 +28,16 @@ export class Signup extends React.Component {
             };
             this.props.dispatch(signupUser(user));
             inputs.map(input => (input.value = ""));
+            console.log(this.props.loggedIn);
+            if (this.props.loggedIn) {
+                return <Redirect to="/dashboard" />;
+            }
         }
     }
 
 
     render() {
+        console.log(this.props.loggedIn);
         if (this.props.loggedIn) {
             return <Redirect to="/dashboard" />;
         }
@@ -95,7 +87,7 @@ export class Signup extends React.Component {
                                         id="signup-password" placeholder="Enter Password" defaultValue="demo123"
                                         minLength={6}
                                         ref={input => (this.password = input)}
-                                        
+
                                     />
                                     <label htmlFor="confirm-password">Confirm Password</label>
                                     <input
@@ -121,7 +113,7 @@ export class Signup extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    loggedIn: state.reducer.user
+    loggedIn: state.reducer.loggedIn
 });
 
 

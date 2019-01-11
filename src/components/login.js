@@ -13,9 +13,10 @@ export class Login extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         const inputs = [this.username, this.password]
-        if (this.username.value == "") {
+        // Validate User Input
+        if (this.username.value === "") {
             alert('Please input a user name.');
-        } else if (this.password.value == "") {
+        } else if (this.password.value === "") {
             alert('Please input a password.');
         } else {
             const user = {
