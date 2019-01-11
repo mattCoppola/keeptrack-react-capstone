@@ -51,7 +51,6 @@ export default (state = initialState, action) => {
     if (action.type === actions.AUTH_SUCCESS) {
         const username = action.currentUser.user.username;
         const id = action.currentUser.user._id;
-        console.log(username, id);
         return Object.assign({}, state, {
             loading: false,
             user: username,

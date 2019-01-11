@@ -14,7 +14,12 @@ import '../css/normalize.css';
 import '../css/grid.css';
 
 export class Landing extends React.Component {
+  constructor(props){
+      super(props);
+  }
+
     render() {
+      console.log("landingpage.js authToken:  ", this.props.authToken)
         return (
             <div>
                 <header id="home" role="banner">
@@ -65,7 +70,7 @@ export class Landing extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    hello: state.hello
+    authToken: state.authToken
 })
 
 export default connect(mapStateToProps, {learnMore})(Landing);

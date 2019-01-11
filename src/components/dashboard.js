@@ -27,6 +27,7 @@ export class Dashboard extends React.Component {
     }
 
     render() {
+      console.log("dashboard.js - authToken:  ", this.props.authToken)
         const date = new Date();
         const hours = date.getHours();
         let timeOfDay;

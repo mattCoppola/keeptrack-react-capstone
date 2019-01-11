@@ -7,14 +7,18 @@ import { retrieveWorkOrders, deleteWorkOrder } from "../actions";
 export class WorkorderList extends React.Component {
     constructor(props){
         super(props);
+        this.deleteWO = this.deleteWO.bind(this);
     }
 
    componentDidMount() {
-       this.props.dispatch(retrieveWorkOrders());
+       this.props.retrieveWorkOrders();
+   }
+
+   deleteWO(target) {
+     this.props.deleteWorkOrder(target.id);
    }
 
     render() {
-   
         function handleClick() {
             alert('Invoice PDF stub...for future version of this application')
         }
@@ -31,9 +35,10 @@ export class WorkorderList extends React.Component {
                     <td>{workorder.created}</td>
                     <td><a href="#" onClick={handleClick}>{workorder.caseNumber}</a></td>
                     <td>
-                        <button 
+                        <button
                             type="button"
-                            id={workorder.id}
+                            id={workorder._id}
+                            onClick={e => this.deleteWO(e.currentTarget)}
                         >
                         Delete
                         </button>
@@ -66,4 +71,4 @@ const mapStateToProps = (state) => ({
      results: state.reducer.workorders
 });
 
-export default connect(mapStateToProps)(WorkorderList);
+export default connect(mapStateToProps, {retrieveWorkOrders, deleteWorkOrder})(WorkorderList);

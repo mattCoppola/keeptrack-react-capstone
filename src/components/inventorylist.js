@@ -24,7 +24,7 @@ export class InventoryList extends React.Component {
         const rows = [];
         this.props.inventory.forEach((item) => {
             rows.push(
-                <tr>
+                <tr key={item._id}>
                 <td>{item.partNumber}</td>
                 <td>{item.cost}</td>
                 <td>{item.price}</td>

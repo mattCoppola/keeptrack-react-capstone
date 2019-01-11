@@ -104,7 +104,7 @@ export const fetchErr = err => ({
 
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
-    console.log(decodedToken);
+    console.log("action-index-js ", decodedToken);
     dispatch(setAuthToken(authToken));
     dispatch(authSuccess(decodedToken));
 };
@@ -112,7 +112,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = user => dispatch => {
   dispatch(request());
-    console.log(user);
+    console.log("action-index.js ", user);
   fetch(`${API_ORIGIN}/api/auth/login`, {
     method: "POST",
     headers: {
@@ -137,7 +137,7 @@ export const login = user => dispatch => {
 
 export const signupUser = user => dispatch => {
     dispatch(request());
-    console.log(user);
+    console.log("action-index ", user);
     let newUser = user;
     fetch(`${API_ORIGIN}/api/users`, {
         method: "POST",
