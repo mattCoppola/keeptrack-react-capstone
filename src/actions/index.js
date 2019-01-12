@@ -202,6 +202,20 @@ export const deleteWorkOrder = (id) => dispatch =>  {
     dispatch(request)
     //api fetch call to delete
     console.log('Deleting ', id)
+    fetch(`${API_ORIGIN}/api/auth/workorder/${id}`, {
+      method: "DELETE",
+      mode: "cors",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify({id: id})
+    })
+      .then(res => {
+        console.log("DELETED WORKORDER")
+      })
+      .catch(err => {
+        console.log(err);
+      });
 };
 
 export const retrieveInventory = inventory => dispatch => {

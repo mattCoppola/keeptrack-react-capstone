@@ -25,9 +25,11 @@ export class WorkorderList extends React.Component {
 
         console.log(this.props.results);
 
+
         const rows = [];
-        this.props.results.forEach(function(workorder, index) {
-//            const numberOfPartsReplaced = workorder.partReplaced.length;
+        // to call global this inside of render you must use ES6 arrow function
+        const results = this.props.results;
+        results.forEach((workorder, index) => {
             rows.push(
                 <tr key={index}>
                     <td>{workorder.username}</td>
