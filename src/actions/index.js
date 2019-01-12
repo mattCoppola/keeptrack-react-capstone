@@ -21,11 +21,10 @@ export const request = () => ({
 // SIGNUP A NEW USER //
 ///////////////////////
 //
-//export const SIGNUP_USER = 'SIGNUP_USER';
-//export const signupUser = user => ({
-//    type: SIGNUP_USER,
-//    user
-//});
+export const SIGNUP_USER = 'SIGNUP_USER';
+export const loggedIn = () => ({
+   type: SIGNUP_USER,
+});
 
 //////////////////
 // LOGIN A USER //
@@ -158,7 +157,7 @@ export const signupUser = user => dispatch => {
         return res.json();
     })
         .then(alert("Signup Success!  You can Login Now"))
-        .then(dispatch(login(loginuser)))
+        .then(dispatch(loggedIn()))
 //        .then(authToken => storeAuthInfo(authToken.authToken, dispatch))
         .catch(err => {
         dispatch(fetchErr(err));

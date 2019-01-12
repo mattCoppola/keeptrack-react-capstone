@@ -7,6 +7,7 @@ const initialState = {
     userID: "",
     loading: false,
     loggedIn: false,
+    signedUp: false,
     workorders: [],
     inventory:[],
 };
@@ -32,11 +33,11 @@ export default (state = initialState, action) => {
             user: action.user
         });
     }
-//    if (action.type === actions.SIGNUP_USER) {
-//        return Object.assign({}, state, {
-//            user: action.user
-//        });
-//    }
+   if (action.type === actions.SIGNUP_USER) {
+       return Object.assign({}, state, {
+           signedUp: true
+       });
+   }
     if (action.type === actions.LOGIN_USER) {
         return Object.assign({}, state, {
             user: action.user
@@ -63,7 +64,8 @@ export default (state = initialState, action) => {
             authToken: '',
             user: null,
             userID: '',
-            loggedIn: false
+            loggedIn: false,
+            signedUp: false
         });
     }
     if (action.type === actions.SUBMIT_WORKORDER) {

@@ -67,6 +67,7 @@ export class WorkorderForm extends React.Component {
                         <li className="workorder-li">Click the button to open up a new workorder form.</li>
                         <li className="workorder-li">Enter all of your information and click save</li>
                         <li className="workorder-li">Once saved you can see your work order listed in the Completed Work Orders table above.</li>
+                        <li className="workorder-li">You can also see the inventory part you selected qty is deducted in the Inventory table.</li>
                     </ul>
                     <input onClick={this.toggleHidden} className="new-work-order" type="submit" value="Create Work Order" />
                 </div>

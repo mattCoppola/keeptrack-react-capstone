@@ -28,18 +28,12 @@ export class Signup extends React.Component {
             };
             this.props.dispatch(signupUser(user));
             inputs.map(input => (input.value = ""));
-            console.log(this.props.loggedIn);
-            if (this.props.loggedIn) {
-                return <Redirect to="/dashboard" />;
-            }
         }
     }
 
-
     render() {
-        console.log(this.props.loggedIn);
-        if (this.props.loggedIn) {
-            return <Redirect to="/dashboard" />;
+        if (this.props.signedUp) {
+            return <Redirect to="/" />;
         }
         return (
             <header id="home" role="banner">
@@ -113,7 +107,7 @@ export class Signup extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    loggedIn: state.reducer.user
+    signedUp: state.reducer.signedUp
 });
 
 
