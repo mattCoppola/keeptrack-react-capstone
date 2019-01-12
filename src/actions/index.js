@@ -210,9 +210,7 @@ export const deleteWorkOrder = (id) => dispatch =>  {
       },
       body: JSON.stringify({id: id})
     })
-      .then(res => {
-        console.log("DELETED WORKORDER")
-      })
+      .then(res => dispatch(retrieveWorkOrders(res)))
       .catch(err => {
         console.log(err);
       });
