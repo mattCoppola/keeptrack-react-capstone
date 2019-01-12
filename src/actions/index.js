@@ -72,11 +72,11 @@ export const displayInventory = results => ({
 // SUBTRACT INVENTORY //
 ////////////////////////
 
-export const SUBTRACT_INVENTORY = 'SUBTRACT_INVENTORY';
-export const subtractInventory = partKey => ({
-    type: SUBTRACT_INVENTORY,
-    partKey
-});
+// export const SUBTRACT_INVENTORY = 'SUBTRACT_INVENTORY';
+// export const subtractInventory = partKey => ({
+//     type: SUBTRACT_INVENTORY,
+//     partKey
+// });
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const authRequest = () => ({
@@ -139,6 +139,11 @@ export const signupUser = user => dispatch => {
     dispatch(request());
     console.log("action-index ", user);
     let newUser = user;
+    let loginuser = {
+      username: user.username,
+      password: user.password
+    }
+    console.log(loginuser);
     fetch(`${API_ORIGIN}/api/users`, {
         method: "POST",
         headers: {
@@ -152,7 +157,8 @@ export const signupUser = user => dispatch => {
         }
         return res.json();
     })
-        .then(dispatch(login(newUser)))
+        .then(alert("Signup Success!  You can Login Now"))
+        .then(dispatch(login(loginuser)))
 //        .then(authToken => storeAuthInfo(authToken.authToken, dispatch))
         .catch(err => {
         dispatch(fetchErr(err));
@@ -231,3 +237,18 @@ export const retrieveInventory = inventory => dispatch => {
         })
         .then(res => dispatch(displayInventory(res)))
 };
+
+export const subtractInventory = (id) => dispatch => {
+  fetch(`${API_ORIGIN}/api/auth/inventory/${id}`, {
+    method: "PUT",
+    mode: "cors",
+    headers: {
+      "content-type": "application/json"
+    },
+    body: JSON.stringify({id: id})
+  })
+    .then(res => dispatch(retrieveInventory(res)))
+    .catch(err => {
+      console.log(err);
+    });
+}

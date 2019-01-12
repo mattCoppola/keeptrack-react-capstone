@@ -81,21 +81,21 @@ export default (state = initialState, action) => {
             inventory: action.results.inventoryItems
         });
     }
-    if (action.type === actions.SUBTRACT_INVENTORY) {
-        let updatedItem = {}
-        initialState.inventory.forEach(function(item) {
-           if(item.id === action.partKey){
-                updatedItem = item;
-                updatedItem.qty--
-                console.log(updatedItem);
-           }
-        });
-        return Object.assign({}, state, {
-            INVENTORY: state.inventory.map(item =>
-                item.id === updatedItem.id ? updatedItem : item
-            )
-        })
-
-    }
+    // if (action.type === actions.SUBTRACT_INVENTORY) {
+    //     let updatedItem = {}
+    //     initialState.inventory.forEach(function(item) {
+    //        if(item.id === action.partKey){
+    //             updatedItem = item;
+    //             updatedItem.qty--
+    //             console.log(updatedItem);
+    //        }
+    //     });
+    //     return Object.assign({}, state, {
+    //         INVENTORY: state.inventory.map(item =>
+    //             item.id === updatedItem.id ? updatedItem : item
+    //         )
+    //     })
+    //
+    // }
     return state;
 };

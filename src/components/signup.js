@@ -113,7 +113,7 @@ export class Signup extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-    loggedIn: state.reducer.loggedIn
+    loggedIn: state.reducer.user
 });
 
 

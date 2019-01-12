@@ -24,6 +24,7 @@ export class WorkorderForm extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
+        console.log(this)
         const inputs = [
             this.username,
             this.caseNumber,
@@ -40,13 +41,12 @@ export class WorkorderForm extends React.Component {
             caseNumber: this.caseNumber.value,
             customerName: this.customerName.value,
             serialNumber: this.serialNumber.value,
-            partReplaced: [this.partReplaced.value],
+            partReplaced: this.partReplaced.value,
             notes: this.notes.value,
             dateCreated: Date.now()
         };
-
         this.props.dispatch(submitWorkOrder(workorder));
-        this.props.dispatch(subtractInventory(partKey));
+        this.props.dispatch(subtractInventory(workorder.partReplaced));
         inputs.map(input => (input.value = ""));
     }
 
@@ -55,7 +55,7 @@ export class WorkorderForm extends React.Component {
         const parts = [];
         this.props.parts.forEach(function(part) {
             parts.push(
-                <option value={part.id}>{part.partNumber}</option>
+                <option value={part._id}>{part.partNumber}</option>
             );
         });
 
