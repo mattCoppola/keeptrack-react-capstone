@@ -11,11 +11,11 @@ export class WorkorderList extends React.Component {
     }
 
    componentDidMount() {
-       this.props.retrieveWorkOrders();
+       this.props.retrieveWorkOrders(this.props.authToken);
    }
 
    deleteWO(target) {
-     this.props.deleteWorkOrder(target.id);
+     this.props.deleteWorkOrder(target.id, this.props.authToken);
    }
 
     render() {
@@ -70,7 +70,8 @@ export class WorkorderList extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
-     results: state.reducer.workorders
+     results: state.reducer.workorders,
+     authToken: state.reducer.authToken
 });
 
 export default connect(mapStateToProps, {retrieveWorkOrders, deleteWorkOrder})(WorkorderList);

@@ -164,12 +164,15 @@ export const signupUser = user => dispatch => {
     });
 };
 
-export const submitWorkOrder = workorder => dispatch => {
+export const submitWorkOrder = (workorder, token) => dispatch => {
     dispatch(request());
     console.log(workorder);
+    let authToken = ("bearer " + token)
+    console.log(authToken);
     fetch(`${API_ORIGIN}/api/auth/dashboard`, {
         method: "POST",
         headers: {
+            'Authorization': authToken,
             "content-type": "application/json"
         },
         body: JSON.stringify(workorder)
@@ -180,17 +183,18 @@ export const submitWorkOrder = workorder => dispatch => {
         }
         return res.json();
     })
-        .then(res => dispatch(retrieveWorkOrders(res)))
+        .then(dispatch(retrieveWorkOrders(token)))
         .catch(err => {
         dispatch(fetchErr(err));
     });
 };
 
-export const retrieveWorkOrders = workorder => dispatch => {
-    // dispatch(request());
+export const retrieveWorkOrders = (token) => dispatch => {
+    let authToken = ("bearer " + token)
     fetch(`${API_ORIGIN}/api/auth/dashboard`, {
         mode: "cors",
         headers: {
+            'Authorization': authToken,
             "content-type": "application/json"
         }
     })
@@ -203,19 +207,20 @@ export const retrieveWorkOrders = workorder => dispatch => {
         .then(res => dispatch(displayWorkOrders(res)))
 };
 
-export const deleteWorkOrder = (id) => dispatch =>  {
+export const deleteWorkOrder = (id, token) => dispatch =>  {
     dispatch(request)
-    //api fetch call to delete
     console.log('Deleting ', id)
+    let authToken = ("bearer " + token)
     fetch(`${API_ORIGIN}/api/auth/workorder/${id}`, {
       method: "DELETE",
       mode: "cors",
       headers: {
+        'Authorization': authToken,
         "content-type": "application/json"
       },
       body: JSON.stringify({id: id})
     })
-      .then(res => dispatch(retrieveWorkOrders(res)))
+      .then(dispatch(retrieveWorkOrders(token)))
       .catch(err => {
         console.log(err);
       });
