@@ -14,7 +14,7 @@ export class InventoryList extends React.Component {
     // }
 
    componentDidMount() {
-       this.props.dispatch(retrieveInventory());
+       this.props.dispatch(retrieveInventory(this.props.inventory, this.props.authToken));
    }
 
     render() {
@@ -53,7 +53,8 @@ export class InventoryList extends React.Component {
 };
 
 const mapStateToProps = (state) => ({
-    inventory: state.reducer.inventory
+    inventory: state.reducer.inventory,
+    authToken: state.reducer.authToken
 });
 
 export default connect(mapStateToProps)(InventoryList);

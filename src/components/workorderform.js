@@ -45,9 +45,8 @@ export class WorkorderForm extends React.Component {
             notes: this.notes.value,
             dateCreated: Date.now()
         };
-        console.log(this.props.authToken);
         this.props.dispatch(submitWorkOrder(workorder, this.props.authToken));
-        this.props.dispatch(subtractInventory(workorder.partReplaced));
+        this.props.dispatch(subtractInventory(workorder.partReplaced, this.props.authToken));
         inputs.map(input => (input.value = ""));
     }
 

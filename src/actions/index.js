@@ -103,7 +103,6 @@ export const fetchErr = err => ({
 
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
-    console.log("action-index-js ", decodedToken);
     dispatch(setAuthToken(authToken));
     dispatch(authSuccess(decodedToken));
 };
@@ -111,7 +110,6 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = user => dispatch => {
   dispatch(request());
-    console.log("action-index.js ", user);
   fetch(`${API_ORIGIN}/api/auth/login`, {
     method: "POST",
     headers: {
@@ -136,7 +134,6 @@ export const login = user => dispatch => {
 
 export const signupUser = user => dispatch => {
     dispatch(request());
-    console.log("action-index ", user);
     let newUser = user;
     let loginuser = {
       username: user.username,
@@ -168,7 +165,6 @@ export const submitWorkOrder = (workorder, token) => dispatch => {
     dispatch(request());
     console.log(workorder);
     let authToken = ("bearer " + token)
-    console.log(authToken);
     fetch(`${API_ORIGIN}/api/auth/dashboard`, {
         method: "POST",
         headers: {
@@ -226,10 +222,12 @@ export const deleteWorkOrder = (id, token) => dispatch =>  {
       });
 };
 
-export const retrieveInventory = inventory => dispatch => {
+export const retrieveInventory = (inventory, token) => dispatch => {
+    let authToken = ("bearer " + token);
     fetch(`${API_ORIGIN}/api/auth/inventory`, {
         mode: "cors",
         headers: {
+            'Authorization': authToken,
             "content-type": "application/json"
         }
     })
@@ -242,16 +240,18 @@ export const retrieveInventory = inventory => dispatch => {
         .then(res => dispatch(displayInventory(res)))
 };
 
-export const subtractInventory = (id) => dispatch => {
+export const subtractInventory = (id, token) => dispatch => {
+let authToken = ("bearer " + token);
   fetch(`${API_ORIGIN}/api/auth/inventory/${id}`, {
     method: "PUT",
     mode: "cors",
     headers: {
+      'Authorization': authToken,
       "content-type": "application/json"
     },
     body: JSON.stringify({id: id})
   })
-    .then(res => dispatch(retrieveInventory(res)))
+    .then(res => dispatch(retrieveInventory(res, token)))
     .catch(err => {
       console.log(err);
     });
