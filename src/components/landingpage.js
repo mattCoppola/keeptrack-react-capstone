@@ -19,7 +19,6 @@ export class Landing extends React.Component {
   }
 
     render() {
-      console.log("landingpage.js authToken:  ", this.props.authToken)
         return (
             <div>
                 <header id="home" role="banner">

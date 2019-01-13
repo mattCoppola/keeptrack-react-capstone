@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+// import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { submitWorkOrder, subtractInventory } from "../actions";
 
-import RepairBoard from './repairboard'
+// import RepairBoard from './repairboard'
 
 export class WorkorderForm extends React.Component {
     constructor(props){
@@ -34,7 +34,7 @@ export class WorkorderForm extends React.Component {
             this.notes
         ];
 
-        const partKey = parseInt(this.partReplaced.value);
+        // const partKey = parseInt(this.partReplaced.value);
 
         const workorder = {
             username: this.username.value,

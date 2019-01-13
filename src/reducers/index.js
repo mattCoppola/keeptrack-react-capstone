@@ -26,7 +26,6 @@ export default (state = initialState, action) => {
         });
     }
     if (action.type === actions.REQUEST) {
-        console.log("Requesting....", action.user)
         return Object.assign({}, state, {
             error: null,
             loading: true,

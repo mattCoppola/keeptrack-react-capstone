@@ -13,8 +13,6 @@ import '../css/queries.css';
 import '../css/normalize.css';
 import '../css/grid.css';
 
-import { retrieveWorkOrders } from "../actions";
-
 export class Dashboard extends React.Component {
     constructor(props){
         super(props);

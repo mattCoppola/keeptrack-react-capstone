@@ -1,6 +1,6 @@
 import React from "react";
 import {connect} from 'react-redux';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Dashboard from './components/dashboard';
 import Landing from './components/landingpage';

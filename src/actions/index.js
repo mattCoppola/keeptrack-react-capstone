@@ -134,12 +134,12 @@ export const login = user => dispatch => {
 
 export const signupUser = user => dispatch => {
     dispatch(request());
-    let newUser = user;
-    let loginuser = {
-      username: user.username,
-      password: user.password
-    }
-    console.log(loginuser);
+    // let newUser = user;
+    // let loginuser = {
+    //   username: user.username,
+    //   password: user.password
+    // }
+    // console.log(loginuser);
     fetch(`${API_ORIGIN}/api/users`, {
         method: "POST",
         headers: {
@@ -149,13 +149,14 @@ export const signupUser = user => dispatch => {
     })
         .then(res => {
         if (!res.ok) {
+            alert("Username already taken. Please choose another.")
             return Promise.reject(res.statusText);
+        } else {
+          alert("Signup Success!  You can Login Now")
+          dispatch(loggedIn())
         }
         return res.json();
     })
-        .then(alert("Signup Success!  You can Login Now"))
-        .then(dispatch(loggedIn()))
-//        .then(authToken => storeAuthInfo(authToken.authToken, dispatch))
         .catch(err => {
         dispatch(fetchErr(err));
     });
