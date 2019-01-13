@@ -24,7 +24,7 @@ export class WorkorderForm extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        console.log(this)
+        // console.log(this)
         const inputs = [
             this.username,
             this.caseNumber,
@@ -66,8 +66,8 @@ export class WorkorderForm extends React.Component {
                     <ul> Instructions:
                         <li className="workorder-li">Click the button to open up a new workorder form.</li>
                         <li className="workorder-li">Enter all of your information and click save</li>
-                        <li className="workorder-li">Once saved you can see your work order listed in the Completed Work Orders table above.</li>
-                        <li className="workorder-li">You can also see the inventory part you selected qty is deducted in the Inventory table.</li>
+                        <li className="workorder-li">Once saved you can see your work order listed in the Completed Work Orders table below.</li>
+                        <li className="workorder-li">The quantity of the innventory part you selected for repair is deducted from the Inventory table.</li>
                     </ul>
                     <input onClick={this.toggleHidden} className="new-work-order" type="submit" value="Create Work Order" />
                 </div>

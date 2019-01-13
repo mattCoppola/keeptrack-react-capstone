@@ -18,9 +18,7 @@ export class InventoryList extends React.Component {
    }
 
     render() {
-
-        console.log(this.props.inventory);
-
+        // console.log(this.props.inventory);
         const rows = [];
         this.props.inventory.forEach((item) => {
             rows.push(

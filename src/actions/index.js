@@ -164,7 +164,7 @@ export const signupUser = user => dispatch => {
 
 export const submitWorkOrder = (workorder, token) => dispatch => {
     dispatch(request());
-    console.log(workorder);
+    // console.log(workorder);
     let authToken = ("bearer " + token)
     fetch(`${API_ORIGIN}/api/auth/dashboard`, {
         method: "POST",
@@ -206,7 +206,7 @@ export const retrieveWorkOrders = (token) => dispatch => {
 
 export const deleteWorkOrder = (id, token) => dispatch =>  {
     dispatch(request)
-    console.log('Deleting ', id)
+    // console.log('Deleting ', id)
     let authToken = ("bearer " + token)
     fetch(`${API_ORIGIN}/api/auth/workorder/${id}`, {
       method: "DELETE",

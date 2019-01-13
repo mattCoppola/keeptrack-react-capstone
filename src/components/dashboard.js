@@ -50,11 +50,13 @@ export class Dashboard extends React.Component {
                         </div>
                     </nav>
 
+                <WorkorderForm />
+
                 <div className="row dashboard">
                     <WorkorderList />
                     <InventoryList />
                 </div>
-                <WorkorderForm />
+
             </React.Fragment>
         )
     }

@@ -573,7 +573,7 @@ footer .btn-full:visited {
 
 table.work-orders,
 table.inventory-table {
-    table-layout: fixed;
+    /* table-layout: fixed; */
     border-collapse: collapse;
     text-align: center;
     display: block;
@@ -695,5 +695,3 @@ textarea {
     padding-left: 30px;
     line-height: 1.5em;
 }
-
-
