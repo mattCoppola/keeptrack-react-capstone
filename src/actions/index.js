@@ -180,7 +180,7 @@ export const submitWorkOrder = (workorder, token) => dispatch => {
         }
         return res.json();
     })
-        .then(dispatch(retrieveWorkOrders(token)))
+        .then(res => dispatch(retrieveWorkOrders(token)))
         .catch(err => {
         dispatch(fetchErr(err));
     });
@@ -217,7 +217,13 @@ export const deleteWorkOrder = (id, token) => dispatch =>  {
       },
       body: JSON.stringify({id: id})
     })
-      .then(dispatch(retrieveWorkOrders(token)))
+      .then(res => {
+      if (!res.ok) {
+          return Promise.reject(res.statusText);
+      }
+      return res;
+    })
+      .then(res => dispatch(retrieveWorkOrders(token)))
       .catch(err => {
         console.log(err);
       });
