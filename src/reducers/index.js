@@ -73,7 +73,7 @@ export default (state = initialState, action) => {
     //     });
     // }
     if (action.type === actions.RETRIEVE_WORKORDERS) {
-        console.log(action.results);
+        // console.log(action.results);
         return Object.assign({}, state, {
             workorders: action.results.resultsOutput
         });
