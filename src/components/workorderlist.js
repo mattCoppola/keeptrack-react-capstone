@@ -1,6 +1,5 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import { Redirect } from 'react-router-dom';
 
 import { retrieveWorkOrders, deleteWorkOrder } from "../actions";
 
@@ -22,7 +21,7 @@ export class WorkorderList extends React.Component {
         function handleClick() {
             alert('Invoice PDF stub...for future version of this application')
         }
-        // console.log(this.props.results);
+        
         const rows = [];
         // to call global this inside of render you must use ES6 arrow function
         const results = this.props.results;

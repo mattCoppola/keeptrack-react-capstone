@@ -1,7 +1,6 @@
 import jwtDecode from "jwt-decode";
 import { API_ORIGIN } from "../config";
 
-// DELETE LEARN_MORE & BACK_TO_TOP - THESE ARE TESTS...
 export const LEARN_MORE = 'LEARN_MORE';
 export const learnMore = () => ({
     type: LEARN_MORE
@@ -20,7 +19,7 @@ export const request = () => ({
 ///////////////////////
 // SIGNUP A NEW USER //
 ///////////////////////
-//
+
 export const SIGNUP_USER = 'SIGNUP_USER';
 export const loggedIn = () => ({
    type: SIGNUP_USER,
@@ -45,16 +44,6 @@ export const logOutUser = () => ({
     type: LOGOUT_USER,
 })
 
-////////////////////////
-// SUBMIT A WORKORDER //
-////////////////////////
-
-export const SUBMIT_WORKORDER = 'SUBMIT_WORKORDER';
-//export const submitWorkOrder = workorder => ({
-//    type: SUBMIT_WORKORDER,
-//    workorder
-//});
-
 export const RETRIEVE_WORKORDERS = 'RETRIEVE_WORKORDERS';
 export const displayWorkOrders = results => ({
     type: RETRIEVE_WORKORDERS,
@@ -67,15 +56,6 @@ export const displayInventory = results => ({
     results
 });
 
-////////////////////////
-// SUBTRACT INVENTORY //
-////////////////////////
-
-// export const SUBTRACT_INVENTORY = 'SUBTRACT_INVENTORY';
-// export const subtractInventory = partKey => ({
-//     type: SUBTRACT_INVENTORY,
-//     partKey
-// });
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const authRequest = () => ({
@@ -100,6 +80,9 @@ export const fetchErr = err => ({
   err
 });
 
+/////////////////////
+// STORE AUTH INFO //
+/////////////////////
 
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
@@ -107,6 +90,9 @@ const storeAuthInfo = (authToken, dispatch) => {
     dispatch(authSuccess(decodedToken));
 };
 
+//////////////////
+// LOGIN A USER //
+//////////////////
 
 export const login = user => dispatch => {
   dispatch(request());
@@ -132,14 +118,12 @@ export const login = user => dispatch => {
     });
 };
 
+/////////////////
+// SIGNUP USER //
+/////////////////
+
 export const signupUser = user => dispatch => {
     dispatch(request());
-    // let newUser = user;
-    // let loginuser = {
-    //   username: user.username,
-    //   password: user.password
-    // }
-    // console.log(loginuser);
     fetch(`${API_ORIGIN}/api/users`, {
         method: "POST",
         headers: {
@@ -161,6 +145,17 @@ export const signupUser = user => dispatch => {
         dispatch(fetchErr(err));
     });
 };
+
+
+////////////////////////
+// SUBMIT A WORKORDER //
+////////////////////////
+
+// export const SUBMIT_WORKORDER = 'SUBMIT_WORKORDER';
+//export const submitWorkOrder = workorder => ({
+//    type: SUBMIT_WORKORDER,
+//    workorder
+//});
 
 export const submitWorkOrder = (workorder, token) => dispatch => {
     dispatch(request());
@@ -186,6 +181,10 @@ export const submitWorkOrder = (workorder, token) => dispatch => {
     });
 };
 
+//////////////////////////
+// RETRIEVE A WORKORDER //
+//////////////////////////
+
 export const retrieveWorkOrders = (token) => dispatch => {
     let authToken = ("bearer " + token)
     fetch(`${API_ORIGIN}/api/auth/dashboard`, {
@@ -203,6 +202,10 @@ export const retrieveWorkOrders = (token) => dispatch => {
     })
         .then(res => dispatch(displayWorkOrders(res)))
 };
+
+////////////////////////
+// DELETE A WORKORDER //
+////////////////////////
 
 export const deleteWorkOrder = (id, token) => dispatch =>  {
     dispatch(request)
@@ -229,6 +232,10 @@ export const deleteWorkOrder = (id, token) => dispatch =>  {
       });
 };
 
+////////////////////////
+// RETRIEVE INVENTORY //
+////////////////////////
+
 export const retrieveInventory = (inventory, token) => dispatch => {
     let authToken = ("bearer " + token);
     fetch(`${API_ORIGIN}/api/auth/inventory`, {
@@ -246,6 +253,10 @@ export const retrieveInventory = (inventory, token) => dispatch => {
         })
         .then(res => dispatch(displayInventory(res)))
 };
+
+////////////////////////
+// SUBTRACT INVENTORY //
+////////////////////////
 
 export const subtractInventory = (id, token) => dispatch => {
 let authToken = ("bearer " + token);

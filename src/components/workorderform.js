@@ -1,10 +1,7 @@
 import React from 'react';
-// import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { submitWorkOrder, subtractInventory } from "../actions";
-
-// import RepairBoard from './repairboard'
 
 export class WorkorderForm extends React.Component {
     constructor(props){
@@ -24,7 +21,6 @@ export class WorkorderForm extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        // console.log(this)
         const inputs = [
             this.username,
             this.caseNumber,
@@ -33,8 +29,6 @@ export class WorkorderForm extends React.Component {
             this.partReplaced,
             this.notes
         ];
-
-        // const partKey = parseInt(this.partReplaced.value);
 
         const workorder = {
             username: this.username.value,
@@ -154,6 +148,5 @@ const mapStateToProps = (state) => ({
     parts: state.reducer.inventory,
     authToken: state.reducer.authToken
 });
-
 
 export default connect(mapStateToProps)(WorkorderForm);

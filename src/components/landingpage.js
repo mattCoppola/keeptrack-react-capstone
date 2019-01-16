@@ -8,10 +8,10 @@ import tools from '../css/images/tools.jpg';
 import inventory from '../css/images/inventory.jpg';
 import data from '../css/images/data.jpg'
 
-import '../css/style.css';
-import '../css/queries.css';
-import '../css/normalize.css';
-import '../css/grid.css';
+// import '../css/style.css';
+// import '../css/queries.css';
+// import '../css/normalize.css';
+// import '../css/grid.css';
 
 export class Landing extends React.Component {
   constructor(props){

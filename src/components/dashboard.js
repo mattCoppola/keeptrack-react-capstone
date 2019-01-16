@@ -8,10 +8,10 @@ import WorkorderList from './workorderlist';
 import InventoryList from './inventorylist';
 import WorkorderForm from './workorderform';
 
-import '../css/style.css';
-import '../css/queries.css';
-import '../css/normalize.css';
-import '../css/grid.css';
+// import '../css/style.css';
+// import '../css/queries.css';
+// import '../css/normalize.css';
+// import '../css/grid.css';
 
 export class Dashboard extends React.Component {
     constructor(props){

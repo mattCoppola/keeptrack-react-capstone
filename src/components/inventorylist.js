@@ -1,10 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import '../css/style.css';
-import '../css/queries.css';
-import '../css/normalize.css';
-import '../css/grid.css';
+// import '../css/style.css';
+// import '../css/queries.css';
+// import '../css/normalize.css';
+// import '../css/grid.css';
 
 import { retrieveInventory } from "../actions";
 

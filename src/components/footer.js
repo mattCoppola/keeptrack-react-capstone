@@ -23,8 +23,4 @@ export class Footer extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    hello: state.hello
-})
-
-export default connect(mapStateToProps, {backToTop})(Footer);
+export default connect(null, {backToTop})(Footer);

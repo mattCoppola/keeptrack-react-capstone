@@ -67,11 +67,11 @@ export default (state = initialState, action) => {
             signedUp: false
         });
     }
-    if (action.type === actions.SUBMIT_WORKORDER) {
-        return Object.assign({}, state, {
-            WORKORDERS: [...state.WORKORDERS, action.workorder]
-        });
-    }
+    // if (action.type === actions.SUBMIT_WORKORDER) {
+    //     return Object.assign({}, state, {
+    //         WORKORDERS: [...state.WORKORDERS, action.workorder]
+    //     });
+    // }
     if (action.type === actions.RETRIEVE_WORKORDERS) {
         console.log(action.results);
         return Object.assign({}, state, {
@@ -83,21 +83,5 @@ export default (state = initialState, action) => {
             inventory: action.results.inventoryItems
         });
     }
-    // if (action.type === actions.SUBTRACT_INVENTORY) {
-    //     let updatedItem = {}
-    //     initialState.inventory.forEach(function(item) {
-    //        if(item.id === action.partKey){
-    //             updatedItem = item;
-    //             updatedItem.qty--
-    //             console.log(updatedItem);
-    //        }
-    //     });
-    //     return Object.assign({}, state, {
-    //         INVENTORY: state.inventory.map(item =>
-    //             item.id === updatedItem.id ? updatedItem : item
-    //         )
-    //     })
-    //
-    // }
     return state;
 };
