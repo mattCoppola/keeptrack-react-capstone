@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Dashboard from './components/dashboard';
-import Landing from './components/landingpage';
+import Landing from './components/landing';
 import Login from './components/login';
 import Signup from './components/signup';
 import WorkorderForm from './components/workorderform';

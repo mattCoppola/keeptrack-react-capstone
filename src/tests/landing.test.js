@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 
-import { Landing } from '../components/landingpage';
+import { Landing } from '../components/landing';
 
 describe('<Landing />', () => {
     it('Renders without crashing', () => {
